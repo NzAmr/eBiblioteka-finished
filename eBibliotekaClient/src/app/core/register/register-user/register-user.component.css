@@ -1,0 +1,118 @@
+.form-control-small {
+  margin-bottom: 25px;
+}
+
+.form-control-small > label {
+  display: block;
+  color: #a5a5a5;
+  font-size: 13px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-family: "Roboto-Bold";
+}
+.form-control-small input {
+  box-sizing: border-box;
+  color: #303030;
+  font-size: 14px;
+  padding: 14px;
+  width: 100%;
+  border: 1px solid #dadada;
+  background-color: #f9f9f9;
+  border-radius: 7px;
+}
+
+.form-control-small > input::placeholder {
+  font-family: "Roboto-Light";
+}
+
+.form-control-small > .input-error {
+  border: 1px solid red;
+}
+
+.form-control-error {
+  font-size: 13px;
+  font-family: "Roboto-Light";
+  color: red;
+  margin-top: 5px;
+}
+.register-server-error {
+  font-size: 15px;
+  font-family: "Roboto-Light";
+  color: red;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.submit-button {
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 14px;
+  width: 100%;
+}
+
+.register-status {
+  display: flex;
+  margin-top: 20px;
+}
+
+.register-back {
+  font-size: 15px;
+  font-family: "Roboto-Light";
+}
+.register-back > img {
+  padding: 0 0 0 3px;
+  transition: padding 0.1s;
+  height: 10px;
+}
+
+.register-back:hover {
+  cursor: pointer;
+}
+
+.register-back-active:hover > img {
+  padding: 0 3px 0 0;
+}
+
+.register-back-inactive {
+  color: #c8d1dd;
+}
+.register-back-active {
+  color: #303030;
+}
+
+.register-steps {
+  font-size: 15px;
+  font-family: "Roboto-Light";
+  color: #303030;
+  text-align: right;
+  margin-left: auto;
+}
+
+.register-step-wrapper {
+  margin-bottom: 35px;
+}
+
+.form-control-username-wrapper {
+  position: relative;
+}
+
+.form-control-username-wrapper > img {
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  height: 17px;
+}
+
+.loading-username {
+  position: absolute;
+  top: 11px;
+  right: 20px;
+}
+
+.submit-loading {
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 11px;
+  padding-top: 12px;
+  width: 100%;
+}

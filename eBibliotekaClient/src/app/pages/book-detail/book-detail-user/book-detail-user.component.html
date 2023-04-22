@@ -1,0 +1,115 @@
+<div class="page-wrapper">
+  <div class="wrapper">
+    <div class="lent-wrapper" *ngIf="showLentBookList()">
+      <div>
+        <div class="lent-button" (click)="switchLentBooksDropdown()">
+          Informacije o posuđenim knjigama
+          <img
+            src="assets/svg/caret.svg"
+            alt="toggle-icon"
+            class="toggle-icon"
+            [ngClass]="{
+              'toggle-icon-open': showLentBooksDropdown
+            }"
+          />
+        </div>
+        <div
+          class="lent-dropdown"
+          [ngClass]="{
+            'lent-dropdown-show': showLentBooksDropdown,
+            'lent-dropdown-hide': !showLentBooksDropdown
+          }"
+        >
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Datum posuđivanja</th>
+              <th>Rok za povratak</th>
+              <th>Datum povratka</th>
+              <th>Vraćeno</th>
+            </tr>
+            <tr *ngFor="let item of lentBooks">
+              <td>{{ item.id }}</td>
+              <td>{{ formatDate(item.lentAt) }}</td>
+              <td>{{ formatDate(item.returnDeadline) }}</td>
+              <td *ngIf="item.returned">{{ formatDate(item.returnTime) }}</td>
+              <td *ngIf="!item.returned">-</td>
+              <td *ngIf="item.returned">Da</td>
+              <td *ngIf="!item.returned">Ne</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-flex">
+      <div class="left-side">
+        <div
+          class="image"
+          style="background-image: url('{{ getCoverImagePath() }}')"
+        ></div>
+        <div class="available btn">
+          DOSTUPNO · {{ book.copiesRemaining }} / {{ book.numberOfCopies }}
+        </div>
+        <button
+          class="button button-green btn"
+          (click)="setShowLendBookForm(true)"
+          *ngIf="canLend.canLend"
+        >
+          POSUDI
+        </button>
+
+        <div class="disabled-button-wrapper">
+          <button
+            class="button button-disabled btn tooltip"
+            *ngIf="!canLend.canLend"
+          >
+            POSUDI
+            <div class="bottom">
+              {{ canLend.message }}
+              <i></i>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="about-wrapper">
+          <div class="header-wrapper">
+            <div class="title">{{ book.title }}</div>
+            <div class="author-series">
+              <div class="author">
+                {{ book.author.name }} • Dio serijala
+                <span
+                  class="series"
+                  *ngFor="let s of series"
+                  routerLink="/serijal/{{ s.id }}"
+                  >{{ s.name }}</span
+                >
+              </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="about-text">{{ book.description }}</div>
+          <hr />
+          <div class="tag-wrapper">
+            <app-book-tag-user
+              *ngFor="let tag of tags"
+              [tag]="tag"
+              (onActionComplete)="loadTags()"
+            ></app-book-tag-user>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rating"></div>
+  </div>
+</div>
+
+<app-lend-book-form
+  *ngIf="showLendBookForm"
+  (onClose)="setShowLendBookForm(false)"
+  [book]="book"
+  [id]="bookId"
+>
+</app-lend-book-form>

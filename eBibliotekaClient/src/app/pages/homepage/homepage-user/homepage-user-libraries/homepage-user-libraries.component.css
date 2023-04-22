@@ -1,0 +1,10 @@
+.library-list-wrapper {
+  margin-top: 25px;
+  width: 90%;
+  display: flex;
+}
+
+.library-card {
+  display: block;
+  margin-right: 30px;
+}

@@ -1,0 +1,84 @@
+.library-card-wrapper {
+  width: 510px;
+}
+
+.library-card-wrapper-action:hover {
+  cursor: pointer;
+}
+
+.banner {
+  height: 117px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 7px 7px 0 0;
+}
+
+.content {
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 15px;
+  background-color: #f9f9f9;
+  position: relative;
+  border: 1px solid #e3e3e3;
+  border-radius: 0 0 7px 7px;
+}
+.heading {
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+}
+.profile-pic {
+  background-color: #f9f9f9;
+  position: absolute;
+  top: -85px;
+  left: 5px;
+  border: 1px solid #e3e3e3;
+  height: 110px;
+  width: 110px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+.name {
+  color: #303030;
+  font-size: 24px;
+  padding-left: 135px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  column-gap: 15px;
+  height: 120px;
+  overflow: hidden;
+}
+.about-text {
+  font-family: "Roboto-Light";
+  color: #3f3f3f;
+  font-size: 16px;
+  line-height: 150%;
+  white-space: pre-line;
+  text-align: justify;
+  padding-right: 20px;
+}
+
+.content-action {
+  padding-bottom: 40px;
+}
+
+.action {
+  position: absolute;
+  font-family: "Roboto-Bold";
+  bottom: 0;
+  right: 0;
+  padding: 12px 15px;
+}
+.action > img {
+  height: 12px;
+  padding: 0 5px 0 0;
+  transition: padding 0.1s;
+}
+
+.library-card-wrapper:hover .action > img {
+  padding: 0 0 0 5px;
+  background-color: #f9f9f9;
+}

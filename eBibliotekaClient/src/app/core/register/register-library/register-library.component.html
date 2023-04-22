@@ -1,0 +1,190 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="register-step-wrapper" *ngIf="this.step === 1">
+    <div class="form-control-small">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        [(ngModel)]="librarian.email"
+        (change)="emailChange()"
+        [ngClass]="{
+          'input-error': errors.email.length !== 0
+        }"
+        required
+      />
+      <div class="form-control-error" *ngFor="let error of errors.email">
+        {{ error }}
+      </div>
+    </div>
+
+    <div class="form-control-small">
+      <label for="username">Korisničko ime</label>
+      <div class="form-control-username-wrapper">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="librarian.username"
+          (change)="usernameChange()"
+          [ngClass]="{
+            'input-error': errors.username.length !== 0
+          }"
+          required
+        />
+        <div class="lds-ring loading-username" *ngIf="usernameLoading">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <img
+          src="assets/svg/checkmark-green.svg"
+          alt="checkmark-green"
+          class="close-icon"
+          *ngIf="usernameValid"
+        />
+      </div>
+
+      <div class="form-control-error" *ngFor="let error of errors.username">
+        {{ error }}
+      </div>
+    </div>
+  </div>
+
+  <div class="register-step-wrapper" *ngIf="this.step === 2">
+    <div class="form-control-small">
+      <label for="firstName">Ime</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="librarian.firstName"
+      />
+    </div>
+    <div class="form-control-small">
+      <label for="lastName">Prezime</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        [(ngModel)]="librarian.lastName"
+      />
+    </div>
+  </div>
+
+  <div class="register-step-wrapper" *ngIf="this.step === 3">
+    <div class="form-control-small">
+      <label for="password">Lozinka</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="librarian.password"
+        (change)="passwordChange()"
+        [ngClass]="{
+          'input-error': errors.password.length !== 0
+        }"
+        required
+      />
+      <div class="form-control-error" *ngFor="let error of errors.password">
+        {{ error }}
+      </div>
+    </div>
+    <div class="form-control-small">
+      <label for="password">Ponovite lozinku</label>
+      <input
+        type="password"
+        id="password-repeat"
+        name="password-repeat"
+        [(ngModel)]="repeatPassword"
+        (change)="repeatPasswordChange()"
+        [ngClass]="{
+          'input-error': errors.password.length !== 0
+        }"
+        required
+      />
+      <div
+        class="form-control-error"
+        *ngFor="let error of errors.repeatPassword"
+      >
+        {{ error }}
+      </div>
+    </div>
+  </div>
+
+  <div class="register-step-wrapper" *ngIf="this.step === 4">
+    <div class="register-libraryName-control">
+      <div class="form-control-small">
+        <label for="libraryName">Naziv biblioteke</label>
+        <input
+          type="text"
+          id="libraryName"
+          name="libraryName"
+          [(ngModel)]="librarian.libraryName"
+          (change)="libraryNameChange()"
+          [ngClass]="{
+            'input-error': errors.libraryName.length !== 0
+          }"
+          required
+        />
+        <div
+          class="form-control-error"
+          *ngFor="let error of errors.libraryName"
+        >
+          {{ error }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="register-status">
+    <div class="register-back register-back-inactive" *ngIf="step === 1">
+      <img src="assets/svg/back-arrow-light.svg" alt="back-arrow" />
+      Prošli korak
+    </div>
+    <div
+      class="register-back register-back-active"
+      *ngIf="step !== 1"
+      (click)="prevStep()"
+    >
+      <img src="assets/svg/back-arrow-dark.svg" alt="back-arrow" />
+      Prošli korak
+    </div>
+    <div class="register-steps">Korak {{ step }} od 4</div>
+  </div>
+
+  <button
+    type="button"
+    value="add user"
+    (click)="nextStep()"
+    class="button button-green submit-button"
+    *ngIf="step !== 4"
+  >
+    SLJEDEĆE
+  </button>
+
+  <button
+    type="submit"
+    value="add user"
+    class="button button-green submit-button"
+    *ngIf="step === 4 && loading === false"
+    (click)="nextStep()"
+  >
+    REGISTRUJ SE
+  </button>
+
+  <button
+    type="submit"
+    value="add user"
+    class="button button-green submit-loading"
+    *ngIf="step === 4 && loading === true"
+  >
+  <div class="lds-ring lds-ring-white loading-submit">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  </button>
+</form>

@@ -1,0 +1,28 @@
+<div class="book-list-no-items" *ngIf="books.length === 0 && loading === false">
+  Nije pronađena knjiga koja odgovara unesenom kriteriju<br />
+  <p>Provjerite uneseni sadžaj pa pokušajte ponovo</p>
+</div>
+<div class="book-list-wrapper" *ngIf="loading === false">
+  <div class="book-list-item" *ngFor="let book of books">
+    <div
+      class="cover"
+      style="background-image: url('{{ getFullImagePath(book.coverImage) }}')"
+    ></div>
+    <div class="about-text">
+      <div class="book-title">{{ book.title }}</div>
+      <div class="author-name">{{ book.author }}</div>
+    </div>
+    <div class="button button-dark btn" (click)="selectBook(book.id)">
+      {{ actionText }}
+    </div>
+  </div>
+</div>
+
+<div class="loading-wrapper" *ngIf="loading">
+  <div class="lds-ring lds-ring-large loading-search">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

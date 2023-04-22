@@ -1,0 +1,43 @@
+<div class="main-wrapper-background">
+  <div class="wrapper">
+    <div class="header">
+      <app-heading
+        size="l"
+        class="register-heading"
+        text="EVIDENCIJA POSUĐIVANJA"
+      ></app-heading>
+
+      <div class="wizard-wrapper">
+        <div class="steps-wrapper">
+          <div class="step">
+            <div class="step-line"></div>
+            <div class="step-highlight"></div>
+          </div>
+          <div class="step">
+            <div class="step-line"></div>
+            <div class="step-highlight" *ngIf="currentStep >= 2"></div>
+          </div>
+          <div class="step">
+            <div class="step-highlight" *ngIf="currentStep >= 3"></div>
+          </div>
+        </div>
+
+        korak {{ currentStep }} od 3 : {{ stepText }}
+      </div>
+    </div>
+
+    <app-register-lending-books
+      *ngIf="bookId === undefined"
+      (onSelectBook)="selectBook($event)"
+    ></app-register-lending-books>
+    <app-register-lending-users
+      *ngIf="memberId === undefined && bookId"
+      (onUserSelect)="selectUser($event)"
+    ></app-register-lending-users>
+    <app-register-lending-summary
+      *ngIf="bookId && memberId"
+      [bookId]="bookId"
+      [memberId]="memberId"
+    ></app-register-lending-summary>
+  </div>
+</div>

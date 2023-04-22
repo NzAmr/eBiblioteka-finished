@@ -1,0 +1,32 @@
+<div class="landing-page">
+  <div class="wrapper">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        class="search-input"
+        [(ngModel)]="searchFilter"
+        placeholder="Pretraži dostupne biblioteke"
+      />
+      <button class="search-button">PRETRAŽI</button>
+    </div>
+
+    <div class="grid-1">
+      <div class="noti-wrapper">
+        <app-heading text="OBAVJEŠTENJA" size="m"></app-heading>
+
+        <div class="no-items">Trenutno nema obavještenja</div>
+      </div>
+      <div class="lent-wrapper">
+        <app-heading text="POSUĐENE KNJIGE" size="m"></app-heading>
+        <app-homepage-user-books></app-homepage-user-books>
+      </div>
+    </div>
+
+    <div class="libraries-wrapper">
+      <app-heading text="VAŠE BIBLIOTEKE" size="m"></app-heading>
+      <app-homepage-user-libraries></app-homepage-user-libraries>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.library-search-main {
+    background-color: #e6e6e6;
+    padding: 60px 0;
+  }
+  .search-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  .search-wrapper:focus {
+    outline: 1px solid #424242;
+    background-color: white;
+  }
+  .search-input {
+    padding: 15px;
+    font-family: "Roboto-Light";
+    font-size: 15px;
+    border: none;
+    border-radius: 7px 0 0 7px;
+    background-color: #f5f5f5;
+    transition: background-color 0.2s;
+    width: 100%;
+  }
+  .search-input:focus {
+    outline: none;
+    background-color: white;
+  }
+  .search-button {
+    padding: 15px 50px;
+    font-size: 15px;
+    border: none;
+    border-radius: 7px;
+  }
+  

@@ -1,0 +1,21 @@
+<div class="heading-wrapper">
+  <h1
+    class="heading"
+    [ngClass]="{
+      'heading-medium': size == 'm',
+      'heading-large': size == 'l',
+      'heading-small': size == 's',
+      'heading-centered': centered
+    }"
+    [ngStyle]="{ color: '#' + color }"
+  >
+    {{ text }}
+  </h1>
+  <div
+    class="heading-highlight"
+    [ngClass]="{
+      'heading-highlight-small': size == 's',
+      'heading-highlight-centered': centered
+    }"
+  ></div>
+</div>

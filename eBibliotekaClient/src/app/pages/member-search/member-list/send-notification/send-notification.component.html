@@ -1,0 +1,19 @@
+<div class="overlay-shadow">
+    <div class="overlay-item upload-wrapper">
+      <div class="upload-header">
+        <app-heading text="ŠALJI NOTIFIKACIJU" size="m"></app-heading>
+        <div class="upload-close-wrapper">
+          <img src="assets/svg/close.svg" alt="close-icon" class="close-icon" (click)="closeOverlay()" />
+        </div>
+      </div>
+  
+      <div class="search-authors-wrapper">
+  
+        <input type="text" class="text" placeholder="Unesite tekst notifikacije" [(ngModel)]="data.text">
+        <button class="button button-dark" (click)="sendNotification()">SPREMI</button>
+  
+      </div>
+  
+      
+      
+  </div>

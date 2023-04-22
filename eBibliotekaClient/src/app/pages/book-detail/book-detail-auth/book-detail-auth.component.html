@@ -1,0 +1,153 @@
+<div class="page-wrapper">
+  <div class="wrapper">
+    <div class="main-flex">
+      <div class="left-side">
+        <div
+          class="image"
+          style="background-image: url('{{ getCoverImagePath() }}')"
+        >
+          <div
+            class="cover-edit-background"
+            *ngIf="showEdit"
+            (click)="setShowCoverUpload(true)"
+          >
+            <img
+              src="assets/svg/upload-light.svg"
+              alt="upload-icon"
+              class="upload-icon-large"
+            />
+          </div>
+        </div>
+        <div class="available btn" *ngIf="!showEdit">
+          DOSTUPNO · {{ book.copiesRemaining }} / {{ book.numberOfCopies }}
+        </div>
+        <input
+          type="number"
+          *ngIf="showEdit"
+          class="available-edit"
+          [(ngModel)]="book.numberOfCopies"
+          placeholder="Odaberite broj kopija"
+        />
+        <button
+          class="button button-green btn"
+          (click)="setShowCheckAvailability(true)"
+        >
+          PREGLED DOSTUPNOSTI
+        </button>
+        <button
+          class="button button-green btn"
+          routerLink="/evidencija-posudbe"
+        >
+          EVIDENTIRAJ POSUDBU
+        </button>
+      </div>
+
+      <div class="right-side">
+        <div class="about-wrapper">
+          <div class="header-wrapper">
+            <div *ngIf="!showEdit" class="title-button">
+              <h1 class="title">{{ book.title }}</h1>
+              <button
+                class="button button-ghost-dark menu-button"
+                (click)="setShowEdit(true)"
+              >
+                UREDI
+              </button>
+            </div>
+            <div *ngIf="showEdit" class="title-button-edit">
+              <input
+                style="font-size: 25px"
+                type="text"
+                class="title-edit"
+                [(ngModel)]="book.title"
+              />
+              <div class="btn-wrapper">
+                <button
+                  class="button button-green menu-button"
+                  (click)="Update()"
+                >
+                  SNIMI
+                </button>
+                <button
+                  class="button button-ghost-dark menu-button"
+                  (click)="setShowEdit(false)"
+                >
+                  ODBACI
+                </button>
+              </div>
+            </div>
+            <div class="author-series">
+              <div class="author" *ngIf="!showEdit">
+                {{ book.author.name }} • Dio serijala
+                <span
+                  class="series"
+                  *ngFor="let s of series"
+                  routerLink="/serijal/{{ s.id }}"
+                  >{{ s.name }}</span
+                >
+              </div>
+
+              <button
+                (click)="showAuthors = true"
+                *ngIf="showEdit"
+                class="author-edit"
+              >
+                {{ book.author.name }}
+              </button>
+
+              <div class="line"></div>
+            </div>
+          </div>
+
+          <div *ngIf="!showEdit" class="about-text">{{ book.description }}</div>
+          <div class="about-text-edit-wrapper" *ngIf="showEdit">
+            <textarea
+              class="about-text-edit"
+              rows="4"
+              cols="50"
+              [(ngModel)]="book.description"
+            >
+            </textarea>
+          </div>
+          <hr />
+          <div class="tag-wrapper">
+            <app-book-tag-auth
+              *ngFor="let tag of tags"
+              [tag]="tag"
+              (onActionComplete)="loadTags()"
+            ></app-book-tag-auth>
+            <span class="tag-button" (click)="setShowAddTag(true)">
+              + Dodaj Tag
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="rating"></div>
+    </div>
+  </div>
+
+  <app-select-author
+    *ngIf="showAuthors"
+    (onCloseOverlay)="showAuthors = false"
+    (selectAuthor)="book.author = $event"
+  ></app-select-author>
+  <app-add-tag
+    *ngIf="showAddTag"
+    [bookID]="bookId"
+    (onCloseOverlay)="setShowAddTag(false); loadTags()"
+  ></app-add-tag>
+</div>
+
+<app-image-upload
+  *ngIf="showCoverUpload"
+  (onUploadSuccess)="setCover($event)"
+  (onCloseOverlay)="setShowCoverUpload(false)"
+  [options]="coverUploadOptions"
+></app-image-upload>
+
+<app-check-availability-auth
+  [id]="bookId"
+  [book]="book"
+  *ngIf="showCheckAvailability"
+  (onClose)="setShowCheckAvailability(false)"
+></app-check-availability-auth>

@@ -1,0 +1,26 @@
+<div class="lent-books-wrapper" *ngIf="books.length !== 0">
+  <app-slider
+    class="books-slider"
+    [noOfItems]="books.length"
+    [itemWidth]="217"
+    [gapWidth]="55"
+  >
+    <div class="book-list-item" *ngFor="let item of books">
+      <div
+        class="cover"
+        style="background-image: url('{{ getCoverImagePath(item.book) }}')"
+      ></div>
+      <div class="about-text">
+        <div class="book-title">{{ item.book.title }}</div>
+        <div class="author-name">{{ item.book.author.name }}</div>
+        <div class="time-remaining">Vratiti za 5 dana</div>
+      </div>
+      <div class="action-button" (click)="registerLending(item.id)">
+        Evidentiraj Vraćanje
+      </div>
+    </div>
+  </app-slider>
+</div>
+<div class="no-items" *ngIf="books.length === 0">
+  Korisnik trenutno nema posuđenih knjiga.
+</div>

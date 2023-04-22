@@ -1,0 +1,12 @@
+.user-icon-header {
+  width: 32px;
+  height: 32px;
+  fill: #cfcfcf;
+}
+.user-icon-header:hover {
+  fill: #fff;
+  cursor: pointer;
+}
+.user-icon-header-active {
+  fill: #fff;
+}

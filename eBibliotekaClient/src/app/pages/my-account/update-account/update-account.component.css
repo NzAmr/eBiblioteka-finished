@@ -1,0 +1,16 @@
+.form-control-username-wrapper {
+  position: relative;
+}
+
+.form-control-username-wrapper > img {
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  height: 17px;
+}
+
+.loading-username {
+  position: absolute;
+  top: 11px;
+  right: 20px;
+}

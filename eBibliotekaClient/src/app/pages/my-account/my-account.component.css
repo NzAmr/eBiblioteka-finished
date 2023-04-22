@@ -1,0 +1,144 @@
+.banner {
+  height: 200px;
+  background-color: #a0a0a0;
+  padding-top: 50px;
+  box-sizing: border-box;
+  background-position: center;
+  background-size: cover;
+}
+
+.profile-picture {
+  height: 100px;
+  width: 100px;
+  border-radius: 7px;
+  background-color: #fff;
+  margin: auto;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+.account-wrapper {
+  background-color: #e6e6e6;
+  padding: 20px;
+}
+
+.content-wrapper {
+  background-color: #f9f9f9;
+  border-radius: 7px;
+  box-sizing: border-box;
+  padding: 30px;
+  column-gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.account-heading {
+  margin-bottom: 20px;
+  display: block;
+}
+
+.info-wrapper {
+  border: 1px solid #e3e3e3;
+  border-radius: 7px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.details-wrapper {
+  padding-top: 30px;
+}
+
+.info-control {
+  margin-bottom: 15px;
+}
+
+.info-control > label {
+  display: block;
+  color: #a5a5a5;
+  font-size: 13px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-family: "Roboto-Bold";
+}
+
+.info-control input {
+  box-sizing: border-box;
+  color: #303030;
+  font-size: 14px;
+  padding: 14px;
+  width: 100%;
+  border: 1px solid #dadada;
+  background-color: #f9f9f9;
+  border-radius: 7px;
+}
+
+.account-button {
+  text-align: center;
+  font-family: "Roboto-Light";
+  border-width: 1px;
+}
+
+.details {
+  font-family: "Roboto-Light";
+  font-size: 20px;
+  color: #303030;
+  margin-bottom: 25px;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+.account-button-loading {
+  padding: 12px;
+}
+
+.profile-pic-edit-background {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 7px;
+}
+.profile-pic-edit-background:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.upload-icon-small {
+  padding-top: 28px;
+  padding-left: 7px;
+  height: 50px;
+  opacity: 0;
+  transition: opacity 0.7s;
+}
+
+.profile-pic-edit-background:hover > .upload-icon-small {
+  opacity: 1;
+}
+
+.form-control-error {
+  font-size: 13px;
+  font-family: "Roboto-Light";
+  color: red;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.register-server-error {
+  font-size: 15px;
+  font-family: "Roboto-Light";
+  color: red;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.password-wrapper {
+  margin-bottom: 0;
+}

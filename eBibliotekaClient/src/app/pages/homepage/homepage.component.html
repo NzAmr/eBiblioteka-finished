@@ -1,0 +1,7 @@
+<app-landing-page *ngIf="accountType == null"></app-landing-page>
+<app-homepage-user
+  *ngIf="accountType == getAccountType.User"
+></app-homepage-user>
+<app-homepage-librarian
+  *ngIf="accountType == getAccountType.Library"
+></app-homepage-librarian>

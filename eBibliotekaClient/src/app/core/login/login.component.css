@@ -1,0 +1,17 @@
+.login-register-prompt {
+  margin-top: 15px;
+  margin-left: 5px;
+  font-family: "Roboto-Light";
+  font-size: 15px;
+  color: #616161;
+}
+
+.login-register-link {
+  font-size: 15px;
+  color: #00d8b1;
+  font-family: "Roboto-Light";
+}
+.login-register-link:hover {
+  text-decoration: underline #00d8b1;
+  cursor: pointer;
+}

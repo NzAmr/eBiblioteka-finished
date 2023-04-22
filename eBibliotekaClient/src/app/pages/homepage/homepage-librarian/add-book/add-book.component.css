@@ -1,0 +1,138 @@
+.upload-header {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  .upload-wrapper {
+    position: relative;
+    top: 100px;
+    left: calc(50vw - 350px);
+    border-radius: 7px;
+    box-sizing: border-box;
+    width: 700px;
+    padding: 30px;
+    padding-top: 20px;
+    background-color: #faf6f6;
+    height: 600px;
+  }
+  .form{
+    
+  }
+  .title-text{
+    display: block;
+    border-radius: 5px;
+  }
+  .upload-header {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  .upload-close-wrapper {
+    flex-grow: 2;
+    text-align: right;
+  }
+  .number-copies{
+    padding: 10px;
+    font-size: 23px;
+    font-family:"Roboto-Light";
+    border-radius: 5px;
+    display: block;
+    box-sizing: border-box;
+    width: 200px;
+  }
+  .copies{
+     
+     margin: 10px 0px;
+     
+  }
+  .description-label{
+    color: gray;
+    padding-top: 15px;
+  }
+  .author-btn-wrapper{
+    display: block;
+    display: grid;
+    grid-template-columns: 80% 20%;
+  }
+  .author-label{
+    display: block;
+    color: gray;
+    padding: 20px;
+  }
+  .description-text{
+    border-radius: 5px;
+  padding: 10px 15px;
+  display: block;
+  margin-top: 20px;
+  
+  display: block;
+  color: #303030;
+  font-family: "Roboto-Light";
+  font-size: 20px;
+  border: 1px solid #e3e3e3;
+  }
+  .author-copies-wrapper{
+    display: grid;
+    grid-template-columns:35% 65% ;
+  }
+  .number-copies-label{
+    padding: 20px 0px;
+    color: gray;
+    margin-right: 10px;
+  }
+  .title-text-label{
+      margin-bottom: 5px;
+      color: gray;
+  }
+  .title{
+     
+      margin: 10px 0px;
+  }
+  .title-text{
+    
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+    
+    font-family:"Roboto-Light";
+    font-size: 16px;
+  }
+  
+  .author{
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: 10px 0px;
+  }
+  .btn{
+    border-radius: 10px;
+    height: 52px;
+    border: solid 1px rgb(211, 211, 211);
+  }
+  .btn-spremi{
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 25px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #00d8b1;
+    color: white;
+    font-size: 26px;
+    border: none;
+    outline: none;
+  }
+  .btn-spremi:hover{
+    background-color: #03bd9b;
+  }
+  .author-name{
+    padding: 10px;
+    font-family: "Roboto-Light";
+    border: solid 1px rgb(190, 190, 190);
+    box-sizing: border-box;
+    height: 52px;
+    background-color: white;
+
+  }
+  .author-name-content{
+    font-family: "Roboto-Light";
+    margin-top: 15px;
+  }

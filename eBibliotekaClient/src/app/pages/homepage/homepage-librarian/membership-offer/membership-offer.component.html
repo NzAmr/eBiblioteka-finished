@@ -1,0 +1,60 @@
+<app-membership-offer-create *ngIf="type === getMembershipOfferType().Create">
+</app-membership-offer-create>
+
+<div class="main-wrapper" *ngIf="type === getMembershipOfferType().User">
+  <div class="content-wrapper">
+    <app-heading
+      size="s"
+      [centered]="true"
+      text="{{ offer.title }}"
+    ></app-heading>
+    <div class="description">{{ offer.description }}</div>
+    <div class="offer-grid">
+      <div class="grid-item">
+        <div class="grid-item-title title-books">Broj knjiga</div>
+
+        <div class="grid-item-flex">
+          <app-book-icon
+            class="grid-icon"
+            svgClass="membership-offer-icon"
+          ></app-book-icon>
+          <div class="grid-item-text">
+            {{ offer.noOfBooks }}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item">
+        <div class="grid-item-title title-price">Cijena (KM)</div>
+        <div class="grid-item-flex">
+          <app-wallet-icon
+            class="grid-icon"
+            svgClass="membership-offer-icon"
+          ></app-wallet-icon>
+          <div class="grid-item-text">
+            {{ offer.price.toFixed(2) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item grid-item-time">
+        <div class="grid-item-title title-time">Trajanje</div>
+        {{ offer.addedMonths }} mjeseci
+      </div>
+    </div>
+  </div>
+  <div
+    class="button-ghost-dark action-dark"
+    *ngIf="!hideAction && !selected"
+    (click)="action()"
+  >
+    ODABERI
+  </div>
+  <div
+    class="button-green action-dark"
+    *ngIf="!hideAction && selected"
+    (click)="action()"
+  >
+    ODABRANO
+  </div>
+</div>

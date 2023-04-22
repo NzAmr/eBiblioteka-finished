@@ -1,0 +1,51 @@
+<div class="overlay-shadow">
+    <div class="overlay-item auth-wrapper">
+      <div
+        class="auth-form-image"
+        style="background-image: url('assets/img/auth-form-image3.png')"
+      ></div>
+      <div class="auth-form-content">
+        <div class="auth-header">
+          <app-heading text="REGISTRACIJA" size="m"></app-heading>
+        </div>
+  
+        <div class="auth-accountType-wrapper">
+          <button
+            class="button button-auth-type"
+            [ngClass]="{
+              'button-auth-type-ghost': accountType == getAccountType.Library,
+              'button-auth-type-green': accountType == getAccountType.User
+            }"
+            (click)="setAccountType(getAccountType.User)"
+          >
+            ZA KORISNIKE
+          </button>
+          <button
+            class="button button-auth-type"
+            [ngClass]="{
+              'button-auth-type-ghost': accountType == getAccountType.User,
+              'button-auth-type-green': accountType == getAccountType.Library
+            }"
+            (click)="setAccountType(getAccountType.Library)"
+          >
+            ZA BIBLIOTEKE
+          </button>
+        </div>
+  
+        <app-register-user
+          *ngIf="accountType == getAccountType.User"
+        ></app-register-user>
+        <app-register-library
+          *ngIf="accountType == getAccountType.Library"
+        ></app-register-library>
+      </div>
+      <div class="auth-form-whitespace">
+        <img
+          src="assets/svg/close.svg"
+          alt="close-icon"
+          class="close-icon"
+          (click)="closeOverlay()"
+        />
+      </div>
+    </div>
+  </div>

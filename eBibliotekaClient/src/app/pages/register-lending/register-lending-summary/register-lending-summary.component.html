@@ -1,0 +1,129 @@
+<div class="summary-wrapper">
+  <div class="user-side">
+    <app-heading size="m" text="Član"> </app-heading>
+    <div class="grid-item" *ngIf="member && !loading">
+      <div class="account-section">
+        <div
+          class="profile-picture"
+          style="background-image: url('{{
+            getFullImagePath(member.profileImage)
+          }}')"
+        ></div>
+        <div class="info-section">
+          <div class="name">{{ member.firstName }} {{ member.lastName }}</div>
+          <div class="username">{{ member.username }}</div>
+          <div class="email">{{ member.email }}</div>
+        </div>
+      </div>
+
+      <div class="lower-grid">
+        <div class="mem-info-item">
+          <div class="mem-info-title title-join">Učlanjeni</div>
+          {{ getFormattedDate(member.joinDate) }}
+        </div>
+
+        <div class="mem-info-item">
+          <div class="mem-info-title title-expiration">Članarina ističe</div>
+          {{ getFormattedDate(member.expirationDate) }}
+        </div>
+
+        <div class="mem-info-item">
+          <div class="mem-info-title title-debt">Dug</div>
+          Nema dugova
+        </div>
+
+        <div class="action">
+          PROMJENI
+          <img src="assets/svg/back-arrow-dark.svg" alt="back-arrow" />
+        </div>
+      </div>
+    </div>
+
+    <div class="loading-wrapper" *ngIf="loading">
+      <div class="lds-ring lds-ring-large loading-search">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div class="book-side">
+    <app-heading size="m" text="Knjiga"></app-heading>
+
+    <div class="book-list-item" *ngIf="book && !loading">
+      <div
+        class="cover"
+        style="background-image: url('{{ getFullImagePath(book.coverImage) }}')"
+      ></div>
+      <div class="about-text">
+        <div class="book-title">{{ book.title }}</div>
+        <div class="author-name">{{ book.author }}</div>
+        <div class="button button-ghost-dark btn">PROMJENI</div>
+      </div>
+    </div>
+
+    <div class="loading-wrapper" *ngIf="loading">
+      <div class="lds-ring lds-ring-large loading-search">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="lend-form-wrapper">
+  <div class="main-flex">
+    <div class="calendar-section">
+      <app-date-picker
+        [returnDate]="returnDate"
+        (onDateClick)="selectDate($event)"
+      ></app-date-picker>
+    </div>
+    <div class="form-section">
+      <div class="book-title">{{ book.title }}</div>
+      <div class="book-author">{{ book.author }}</div>
+      <div class="dostupno">
+        DOSTUPNO {{ copiesRemaining }}/{{ numberOfCopies }}
+      </div>
+      <div class="form-control">
+        <label for="">VRIJEME IZNAJMLJIVANJA</label>
+        <input type="datetime-local" [(ngModel)]="lendDate" disabled />
+      </div>
+
+      <div class="form-control">
+        <label for="">ROK ZA POVRATAK</label>
+        <input
+          type="datetime-local"
+          [(ngModel)]="returnDate"
+          (ngModelChange)="onReturnDateChange()"
+        />
+        <div class="input-error" *ngFor="let error of errors">
+          {{ error }}
+        </div>
+      </div>
+
+      <button
+        class="button button-green submit-button"
+        (click)="submit()"
+        *ngIf="loading !== true"
+      >
+        POSUDI KNJIGU
+      </button>
+
+      <button
+        class="button button-green submit-loading"
+        *ngIf="loading === true"
+      >
+        <div class="lds-ring lds-ring-white loading-submit">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>

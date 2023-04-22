@@ -1,0 +1,230 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Roboto-Black";
+  src: local("Roboto-Black"),
+    url(./assets/fonts/Roboto/Roboto-Black.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: local("Roboto-Bold"),
+    url(./assets/fonts/Roboto/Roboto-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: local("Roboto-Light"),
+    url(./assets/fonts/Roboto/Roboto-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: "WorkSans-Bold";
+  src: local("WorkSans-Bold"),
+    url(./assets/fonts/WorkSans/WorkSans-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "WorkSans-Black";
+  src: local("WorkSans-Black"),
+    url(./assets/fonts/WorkSans/WorkSans-Black.ttf) format("truetype");
+}
+
+input:focus {
+  outline: none;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #303030;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #303030;
+}
+
+/* TEXTAREA */
+
+/* width */
+textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+textarea::-webkit-scrollbar-track {
+  background: #f9f9f9;
+}
+
+/* Handle */
+textarea::-webkit-scrollbar-thumb {
+  background: #e3e3e3;
+}
+
+/* Handle on hover */
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #c9c9c9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: "Roboto-Black";
+  color: #303030;
+}
+
+.wrapper {
+  width: 1366px;
+  margin: auto;
+}
+
+.wrapper-small {
+  width: 768px;
+  margin: auto;
+}
+
+.overlay-shadow {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.overlay-item {
+  background-color: #f9f9f9;
+  border-radius: 7px;
+}
+
+.close-icon {
+  height: 20px;
+  margin-left: auto;
+}
+.close-icon:hover {
+  cursor: pointer;
+}
+
+.button {
+  border-radius: 7px;
+  padding: 15px;
+  font-size: 15px;
+  border: none;
+  box-sizing: border-box;
+  transition: background-color 0.1s;
+}
+.button:hover {
+  cursor: pointer;
+}
+.button-green:hover {
+  background-color: #0febc2;
+  border: 1px solid #0febc2;
+}
+.button-green {
+  border: 1px solid #00d8b1;
+  background-color: #00d8b1;
+  color: white;
+}
+.button-disabled {
+  border: 1px solid #c4c4c4;
+  background-color: #c4c4c4;
+  color: white;
+}
+.button-dark {
+  background-color: #303030;
+  color: white;
+  transition: background-color 0.1s;
+}
+.button-dark:hover {
+  background-color: #474747;
+  cursor: pointer;
+}
+.button-dark:active {
+  background-color: #7e7e7e;
+}
+.button-ghost {
+  background-color: transparent;
+  border: 1px solid #e3e3e3;
+  color: #303030;
+}
+.button-ghost:hover {
+  background-color: #e3e3e336;
+}
+.button-ghost-dark {
+  background-color: transparent;
+  border-style: solid;
+  color: #303030;
+  border-color: #303030;
+  transition: background-color 0.2s;
+}
+.button-ghost-dark:hover {
+  background-color: #0000000a;
+  cursor: pointer;
+}
+.button-ghost-dark:active {
+  background-color: #00000033;
+}
+
+/* LOADING SPINNER */
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.lds-ring-large {
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: 3px;
+  border: 3px solid #c8d1dd;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #c8d1dd transparent transparent transparent;
+}
+.lds-ring-white div {
+  border-color: white transparent transparent transparent;
+}
+.lds-ring-large div {
+  width: 64px;
+  height: 64px;
+  border: 8px solid #fff;
+  border-color: #c8d1dd transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

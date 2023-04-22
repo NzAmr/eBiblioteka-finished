@@ -1,0 +1,75 @@
+.summary-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+}
+
+.summary-wrapper > div {
+  background-color: #f9f9f9;
+  border: 1px solid #e3e3e3;
+  border-radius: 7px;
+  padding: 20px 30px;
+}
+
+.user-side > .grid-item {
+  padding-top: 65px;
+}
+
+.book-list-item {
+  display: flex;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+.cover {
+  height: 315px;
+  width: 225px;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.btn {
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 15px;
+  font-family: "Roboto-Bold";
+  margin: auto;
+  border-width: 1px;
+  width: 100%;
+}
+.about-text {
+  font-family: "Roboto-Bold";
+  box-sizing: border-box;
+  padding-left: 30px;
+  color: #303030;
+  font-size: 22px;
+  flex-grow: 2;
+  justify-content: center;
+  padding-top: 80px;
+}
+.author-name {
+  font-family: "Roboto-Light";
+  color: #303030;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.loading-wrapper {
+  box-sizing: border-box;
+  padding-top: 125px;
+  height: 350px;
+  align-items: center;
+  text-align: center;
+}
+
+.lend-form-wrapper {
+  background-color: #f9f9f9;
+  border: 1px solid #e3e3e3;
+  border-radius: 7px;
+  padding: 20px 30px;
+  width: fit-content;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

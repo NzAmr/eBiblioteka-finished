@@ -1,0 +1,21 @@
+<div class="book-list-item">
+    <div
+      class="cover"
+      style="background-image: url('{{ getFullImagePath(book.coverImage) }}')"
+    ></div>
+    <div class="about-text">
+      <div *ngIf="!isRecommedation" class="book-title">{{ book.title }}</div>
+      <div *ngIf="!isRecommedation" class="author-name">{{ book.author }}</div>
+      <div *ngIf="isRecommedation" class="book-title-r">{{ book.title }}</div>
+      <div *ngIf="isRecommedation" class="author-name-r">{{ book.author }}</div>
+    </div>
+    <div *ngIf="!isRecommedation" class="button button-dark btn" routerLink="/knjiga/{{ book.id }}">
+      DETALJNO
+    </div>
+    <div *ngIf="isRecommedation" class="button button-dark btn btn-white" routerLink="/knjiga/{{ book.id }}">
+      DETALJNO
+    </div>
+    <div *ngIf="auth" class="button button-dark btn btn-delete" (click)="removeBookFromSeries()">
+      UKLONI
+    </div>
+  </div>

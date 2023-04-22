@@ -1,0 +1,62 @@
+.book-list-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 8.9%;
+  row-gap: 70px;
+  padding: 50px 0;
+}
+.book-list-no-items {
+  font-size: 36px;
+  color: #303030;
+  font-family: "Roboto-Light";
+  margin-top: 60px;
+}
+.book-list-no-items > p {
+  font-size: 24px;
+  color: #303030;
+  font-family: "Roboto-Light";
+  margin-top: 10px;
+}
+
+.book-list-item {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.cover {
+  height: 315px;
+  width: 225px;
+  margin: auto;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.btn {
+  border-radius: 5px;
+  width: 225px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 15px;
+  font-family: "Roboto-Bold";
+  margin: auto;
+}
+.about-text {
+  font-family: "Roboto-Bold";
+  margin: 20px 0;
+  color: #303030;
+  font-size: 22px;
+  flex-grow: 2;
+}
+.author-name {
+  font-family: "Roboto-Light";
+  color: #303030;
+  font-size: 16px;
+}
+
+.loading-wrapper {
+  padding-top: 150px;
+  height: 250px;
+  align-items: center;
+  text-align: center;
+}

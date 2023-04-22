@@ -1,0 +1,77 @@
+.table-wrapper {
+  height: 450px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.table-wrapper > table {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.table-wrapper td,
+.table-wrapper th {
+  padding: 15px 25px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.table-wrapper td {
+  font-family: "Roboto-Light";
+}
+
+/* width */
+.table-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.table-wrapper::-webkit-scrollbar-track {
+  background: #dadada;
+}
+
+/* Handle */
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #aaaaaa;
+}
+
+/* Handle on hover */
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #c4c4c4;
+}
+
+.action-button {
+  padding: 15px;
+  font-family: "Roboto-Light";
+  color: #303030;
+  text-align: center;
+  border: 1px solid #c9c9c9;
+  font-size: 16px;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.action-button:hover {
+  border: 1px solid #303030;
+  transition: 0.2s border;
+  cursor: pointer;
+}
+
+.offers-section {
+  height: 450px;
+  background-color: #f9f9f9;
+  border-radius: 7px;
+  box-sizing: border-box;
+  padding: 20px 25px;
+  overflow-x: hidden;
+}
+
+.loading-wrapper {
+  box-sizing: border-box;
+  padding-top: 125px;
+  height: 350px;
+  align-items: center;
+  text-align: center;
+}

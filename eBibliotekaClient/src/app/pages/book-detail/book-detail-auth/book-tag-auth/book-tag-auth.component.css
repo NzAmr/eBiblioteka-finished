@@ -1,0 +1,15 @@
+.title {
+  display: inline-block;
+  padding-right: 40px;
+  position: relative;
+}
+.content {
+  font-family: "Roboto-Light";
+}
+
+.title > img {
+  position: absolute;
+  height: 12px;
+  top: -3px;
+  right: 22px;
+}

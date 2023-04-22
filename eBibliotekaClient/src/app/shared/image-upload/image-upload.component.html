@@ -1,0 +1,72 @@
+<div class="overlay-shadow">
+  <div class="overlay-item upload-wrapper">
+    <div class="upload-header">
+      <app-heading text="{{ options.title }}" size="s"></app-heading>
+      <div class="upload-close-wrapper">
+        <img
+          src="assets/svg/close.svg"
+          alt="close-icon"
+          class="close-icon"
+          (click)="closeOverlay()"
+        />
+      </div>
+    </div>
+    <div class="subtitle">{{ options.subtitle }}</div>
+
+    <ng-container *ngIf="options.currentImage">
+      <hr class="upload-separator" />
+
+      <div class="upload-heading">Trenutna slika</div>
+
+      <div class="current-wrapper">
+        <div
+          class="current-image"
+          style="background-image: url('{{ GetCurrentPath() }}')"
+        ></div>
+        <div class="current-image-info">
+          <div class="current-image-name">{{ GetCurrentFileName() }}</div>
+          <div class="current-image-date">Ažurirano {{ GetCurrentDate() }}</div>
+          <div class="current-image-remove" (click)="removeImage()">UKLONI</div>
+        </div>
+      </div>
+    </ng-container>
+
+    <hr class="upload-separator" />
+
+    <div class="upload-heading">Nova slika</div>
+    <div class="overwrite-alert">
+      Dodavanjem nove slike će se ukloniti prethodna slika
+    </div>
+    <div class="file-input">
+      <input type="file" #file (change)="onFileChange(file.files)" />
+      <span class="button">Izaberi</span>
+
+      <span class="label" *ngIf="fileToUpload == null">Fajl nije izabran</span>
+      <span class="label label-chosen" *ngIf="fileToUpload != null">{{
+        fileToUpload.name
+      }}</span>
+    </div>
+
+    <ng-container *ngIf="!uploading">
+      <div
+        class="button button-green submit-button"
+        *ngIf="fileToUpload != null"
+        (click)="uploadImage()"
+      >
+        SPREMI
+      </div>
+      <div
+        class="button button-disabled submit-button"
+        *ngIf="fileToUpload == null"
+      >
+        SPREMI
+      </div>
+    </ng-container>
+    <ng-container *ngIf="uploading">
+      <div class="button submit-button">{{ progress }}%</div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar" [ngStyle]="{ width: progress + '%' }"></div>
+      </div>
+    </ng-container>
+  </div>
+</div>

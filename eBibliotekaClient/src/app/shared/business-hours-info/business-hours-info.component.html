@@ -1,0 +1,18 @@
+<div class="main-wrapper" [ngClass]="{ 'main-wrapper-auth': auth }">
+  <div class="content-wrapper" (click)="Edit()">
+    <div class="title">{{ item.title }}</div>
+    <div class="time-wrapper" *ngIf="item.workingDay">
+      <div class="hours">
+        {{ getHour(item.timeFrom) }}
+        <div class="minutes">{{ getMinutes(item.timeFrom) }}</div>
+      </div>
+      <div class="separator">-</div>
+      <div class="hours minutes-margin">
+        {{ getHour(item.timeTo) }}
+        <div class="minutes">{{ getMinutes(item.timeTo) }}</div>
+      </div>
+    </div>
+    <div class="working-day" *ngIf="!item.workingDay">NE RADIMO</div>
+  </div>
+  <div class="delete-btn" *ngIf="auth" (click)="Delete()">X</div>
+</div>

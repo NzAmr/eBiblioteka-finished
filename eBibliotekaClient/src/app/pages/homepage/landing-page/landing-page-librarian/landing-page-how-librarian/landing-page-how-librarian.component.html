@@ -1,0 +1,60 @@
+<div class="wrapper">
+  <div class="how-section-flex">
+    <div class="wizard-wrapper">
+      <div class="steps-wrapper">
+        <div class="step" (click)="setStep(1)">
+          <div class="step-line"></div>
+          <div
+            [ngClass]="{
+              'step-highlight-active': currentStep == 1
+            }"
+            class="step-highlight"
+          ></div>
+        </div>
+        <div class="step" (click)="setStep(2)">
+          <div class="step-line"></div>
+          <div
+            [ngClass]="{
+              'step-highlight-active': currentStep == 2
+            }"
+            class="step-highlight"
+          ></div>
+        </div>
+        <div class="step" (click)="setStep(3)">
+          <div class="step-line"></div>
+          <div
+            [ngClass]="{
+              'step-highlight-active': currentStep == 3
+            }"
+            class="step-highlight"
+          ></div>
+        </div>
+        <div class="step last-step" (click)="setStep(4)">
+          <div
+            [ngClass]="{
+              'step-highlight-active': currentStep == 4
+            }"
+            class="step-highlight"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-section-content">
+      <div class="how-item-flex">
+        <div class="how-item-step">{{ currentStep }}</div>
+        <div class="how-item-title-wrapper">
+          <div class="how-item-title-line"></div>
+          <div class="how-item-title">{{ steps[currentStep].title }}</div>
+        </div>
+      </div>
+      <div class="how-item-content">
+        {{ steps[currentStep].content }}
+      </div>
+    </div>
+
+    <div class="image-wrapper">
+      <img src="assets/svg/how-section-background.svg" alt="" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="overlay-shadow">
+    <div class="overlay-item upload-wrapper">
+      <div class="upload-header">
+        <app-heading text="NOTIFIKACIJE" size="m"></app-heading>
+        <div class="upload-close-wrapper">
+          <img src="assets/svg/close.svg" alt="close-icon" class="close-icon" (click)="closeOverlay()" />
+        </div>
+      </div>
+  
+      <div class="search-authors-wrapper">       
+  
+      </div>
+  
+      
+      <div class="authors-result">
+        <div
+        class="notification-list-item" *ngFor="let notification of notifications">
+        <div class="heading">
+        <div class="sender">{{notification.sender.library.name}}</div>
+        <img src="assets/svg/close.svg" alt="close-icon" class="delete-icon" (click)="removeNotification(notification.id)" />
+      </div>
+        <div class="text">{{notification.text}}</div>
+
+      </div>
+        
+  
+      </div>
+  
+      
+  
+    </div>
+  </div>

@@ -1,0 +1,96 @@
+<div class="map-wrapper">
+  <div class="mode-button-wrapper">
+    <span class="mode-button" (click)="switchSearchType()">LISTA</span>
+    <span class="mode-button mode-button-active">KARTA</span>
+  </div>
+
+  <div class="loading-indicator" *ngIf="loading">
+    <div class="library-list-loading-wrapper">
+      <div class="lds-ring lds-ring-large loading-search">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="view">
+    <agm-map
+      class="map"
+      [latitude]="view.latitude"
+      [longitude]="view.longitude"
+      [zoom]="view.zoom"
+    >
+      <agm-marker
+        class="map-location"
+        *ngFor="let library of libraries"
+        [latitude]="library.latitude"
+        [longitude]="library.longitude"
+        (markerClick)="selectLibrary(library.id)"
+      >
+      </agm-marker>
+    </agm-map>
+  </div>
+
+  <div class="card-position" *ngIf="selectedLibrary || detailsLoading">
+    <div
+      class="card-wrapper"
+      *ngIf="selectedLibrary"
+      routerLink="/biblioteka/{{ selectedLibrary.id }}"
+    >
+      <div
+        class="banner"
+        style="background-image: url('{{
+          getFullPath(selectedLibrary.bannerImage)
+        }}')"
+      ></div>
+      <div class="content">
+        <div class="heading">
+          <div
+            class="profile-pic"
+            style="background-image: url('{{
+              getFullPath(selectedLibrary.profileImage)
+            }}')"
+          ></div>
+          <div class="name">{{ selectedLibrary.name }}</div>
+        </div>
+
+        <div class="about">
+          <div class="about-text">{{ getFormattedAbout(selectedLibrary) }}</div>
+          <div class="library-list-stats"></div>
+        </div>
+        <div class="action">
+          POSJETI STRANICU
+          <img src="assets/svg/forward-arrow-dark.svg" alt="forward-arrow" />
+        </div>
+      </div>
+      <div class="membership-wrapper" *ngIf="selectedLibrary.isMember">
+        Učlanjeni
+        <img
+          src="assets/svg/checkmark-white.svg"
+          alt="checkmark-green"
+          class="checkmark-icon"
+        />
+      </div>
+    </div>
+
+    <div class="card-wrapper loading-card-wrapper" *ngIf="detailsLoading">
+      <div class="lds-ring lds-ring-large loading-search">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <div class="close-wrapper">
+      <img
+        src="assets/svg/close-white.svg"
+        alt="close-icon"
+        class="close-icon"
+        (click)="selectLibrary(-1)"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div
+  class="header-item header-link"
+  [ngClass]="{ 'header-link-active': url == '' }"
+  routerLink="/"
+>
+  NASLOVNA
+  <div class="header-highlight" *ngIf="url == ''"></div>
+</div>
+<div
+  class="header-item header-link"
+  [ngClass]="{ 'header-link-active': url == '/biblioteke' }"
+  routerLink="/biblioteke"
+>
+  BIBLIOTEKE
+  <div class="header-highlight" *ngIf="url == '/biblioteke'"></div>
+</div>
+<div class="upload-close-wrapper">
+  <img src="assets/img/bell-gold.png" alt="bell-icon" class="bell-icon" (click)="setShowNotifications(true)"/>
+</div>
+<div class="header-separator">|</div>
+
+<app-user-icon
+  class="header-icon-wrappper"
+  svgClass="user-icon-header user-icon-header-active"
+  routerLink="/profil"
+  *ngIf="url == '/profil'"
+></app-user-icon>
+
+<app-user-icon
+  class="header-icon-wrappper"
+  svgClass="user-icon-header"
+  routerLink="/profil"
+  *ngIf="url != '/profil'"
+></app-user-icon>
+
+<button
+  class="header-item header-btn button-ghost header-btn-ghost"
+  (click)="onLogout()"
+>
+  ODJAVI SE
+</button>
+
+<app-notification-list *ngIf="showNotifications" (onActionComplete)="setShowNotifications(false)"></app-notification-list>

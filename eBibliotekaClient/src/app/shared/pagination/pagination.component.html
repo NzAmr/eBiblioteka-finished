@@ -1,0 +1,57 @@
+<div class="page-nav-wrapper">
+    <div
+      class="page-nav-button"
+      *ngIf="data.hasPrevious"
+      (click)="navigate(data.currentPage - 1)"
+    >
+      <img src="assets/svg/page-back.svg" alt="back-arrow" />
+    </div>
+  
+    <div
+      class="page-nav-page"
+      *ngIf="data.currentPage > 2"
+      (click)="navigate(data.currentPage - 2)"
+    >
+      {{ data.currentPage - 2 }}
+    </div>
+  
+    <div
+      class="page-nav-page"
+      *ngIf="data.hasPrevious"
+      (click)="navigate(data.currentPage - 1)"
+    >
+      {{ data.currentPage - 1 }}
+    </div>
+  
+    <div
+      [ngClass]="
+        data.totalPages === 1 ? 'page-nav-page-inactive' : 'page-nav-page-active'
+      "
+    >
+      {{ data.currentPage }}
+    </div>
+  
+    <div
+      class="page-nav-page"
+      *ngIf="data.hasNext"
+      (click)="navigate(data.currentPage + 1)"
+    >
+      {{ data.currentPage + 1 }}
+    </div>
+  
+    <div
+      class="page-nav-page"
+      *ngIf="data.currentPage + 2 < data.totalPages"
+      (click)="navigate(data.currentPage + 2)"
+    >
+      {{ data.currentPage + 2 }}
+    </div>
+  
+    <div
+      class="page-nav-button"
+      *ngIf="data.hasNext === true"
+      (click)="navigate(data.currentPage + 1)"
+    >
+      <img src="assets/svg/page-forward.svg" alt="forward-arrow" />
+    </div>
+  </div>

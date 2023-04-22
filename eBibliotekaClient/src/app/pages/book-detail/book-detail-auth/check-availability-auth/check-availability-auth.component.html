@@ -1,0 +1,21 @@
+<div class="overlay-shadow" [ngStyle]="{ top: getScrollPos() + 'px' }">
+  <div class="overlay-item main-wrapper">
+    <app-heading text="DOSTUPNOST ZA" size="m"></app-heading>
+    <div class="close-wrapper">
+      <img
+        src="assets/svg/close.svg"
+        alt="close-icon"
+        class="close-icon"
+        (click)="closeOverlay()"
+      />
+    </div>
+
+    <div class="title">{{ book.title }}</div>
+    <div class="author">{{ book.author.name }}</div>
+
+    <app-check-availability
+      [bookId]="id"
+      [noOfCopies]="book.numberOfCopies"
+    ></app-check-availability>
+  </div>
+</div>

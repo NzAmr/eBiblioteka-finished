@@ -1,0 +1,34 @@
+<div class="library-search-main">
+  <div class="wrapper">
+    <div class="mode-button-wrapper">
+      <span class="mode-button mode-button-active">LISTA</span>
+      <span class="mode-button" (click)="switchSearchType()">KARTA</span>
+    </div>
+    <div class="title" *ngIf="filterStatic === ''">
+      Prikazane su sve biblioteke na stranici
+    </div>
+    <div class="title" *ngIf="filterStatic !== ''">
+      Rezultati pretrage za "{{ filterStatic }}"
+    </div>
+
+    <div class="search-wrapper">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        class="search-input"
+        [(ngModel)]="filter"
+        placeholder="Unesite kriterij za pretraživanje"
+      />
+      <button class="search-button button-dark" (click)="search()">
+        PRETRAŽI
+      </button>
+    </div>
+    <app-library-list [libraries]="pagedList.dataItems" [loading]="loading">
+    </app-library-list>
+    <app-pagination
+      [data]="pagedList.navigation"
+      (onNavigate)="loadPage($event)"
+    ></app-pagination>
+  </div>
+</div>

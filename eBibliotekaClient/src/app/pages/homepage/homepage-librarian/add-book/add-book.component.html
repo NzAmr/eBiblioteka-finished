@@ -1,0 +1,56 @@
+<div class="overlay-shadow">
+  <div class="overlay-item upload-wrapper">
+    <div class="upload-header">
+      <app-heading text="Dodaj knjigu" size="m"></app-heading>
+      <div class="upload-close-wrapper">
+        <img src="assets/svg/close.svg" alt="close-icon" class="close-icon" (click)="closeOverlay()" />
+      </div>
+    </div>
+
+    <div class="form">
+
+      <div class="title">
+        <div class="title-text-label">Naslov:</div>
+        <input type="text" class="title-text" [(ngModel)]="title">
+      </div>
+
+      <div class="description-wrapper">
+        <div class="description-label">Opis</div>
+        <textarea class="description-text" cols="60" rows="4" [(ngModel)]="description"></textarea>
+
+      </div>
+      <div class="author-copies-wrapper">
+
+        <div class="copies">
+          <div class="number-copies-label">Broj kopija:</div>
+          <input type="number" class="number-copies" [(ngModel)]="copies">
+
+        </div>
+
+
+
+        <div class="author">
+          
+          <div class="author-label">Autor</div>
+          <div class="author-btn-wrapper">
+
+            <div class="author-name">
+              <div class="author-name-content">{{author.name}}</div>
+            </div>
+            
+            <button class="btn button-ghost-dark" (click)="setShowAuthors(true)">...</button>
+          </div> 
+
+        </div>
+      </div>
+      <div class="spremi">
+        <button class="btn-spremi" (click)="AddAuthor()">SPREMI</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<app-select-author *ngIf="showAuthors" (onCloseOverlay)="setShowAuthors(false)" (selectAuthor)="recieveAuthor($event)">
+</app-select-author>

@@ -1,0 +1,15 @@
+<div class="book-list-item">
+    <div
+      class="cover"
+      style="background-image: url('{{ getFullImagePath(book.coverImage) }}')"
+    ></div>
+    <div class="about-text">
+      <div class="book-title">{{ book.title }}</div>
+      <div class="author-name">{{ book.author }}</div>
+    </div>
+    <div class="button button-dark btn" (click)="addBookID.emit(book.id); onComplete()">
+      ODABERI
+    </div>
+    
+  </div>
+

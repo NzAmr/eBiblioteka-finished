@@ -1,0 +1,114 @@
+<div class="overlay-shadow" [ngStyle]="{ top: getScrollPos() + 'px' }">
+  <div class="overlay-item auth-wrapper">
+    <div
+      class="auth-form-image"
+      style="background-image: url('assets/img/auth-form-image.png')"
+    ></div>
+    <div class="auth-form-content">
+      <div class="auth-header">
+        <app-heading text="RADNO VRIJEME" size="m"></app-heading>
+      </div>
+
+      <div class="form-control-small">
+        <label for="username">Tekst</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="hours.title"
+          (ngModelChange)="titleChange()"
+          placeholder="PONEDJELJAK - PETAK"
+        />
+        <div class="form-control-error" *ngFor="let error of errors.title">
+          {{ error }}
+        </div>
+      </div>
+      <div class="form-control-small">
+        <label for="password">Radno vrijeme od</label>
+        <div class="time-flex">
+          <input
+            type="number"
+            min="0"
+            max="24"
+            [(ngModel)]="hours.timeFrom[0]"
+            (ngModelChange)="timeFromChange()"
+          />
+          <input
+            type="number"
+            min="0"
+            max="60"
+            [(ngModel)]="hours.timeFrom[1]"
+            (ngModelChange)="timeFromChange()"
+          />
+        </div>
+        <div class="form-control-error" *ngFor="let error of errors.timeFrom">
+          {{ error }}
+        </div>
+      </div>
+
+      <div class="form-control-small">
+        <label for="password">Radno vrijeme do</label>
+        <div class="time-flex">
+          <input
+            type="number"
+            min="0"
+            max="24"
+            [(ngModel)]="hours.timeTo[0]"
+            (ngModelChange)="timeToChange()"
+          />
+          <input
+            type="number"
+            min="0"
+            max="60"
+            [(ngModel)]="hours.timeTo[1]"
+            (ngModelChange)="timeToChange()"
+          />
+        </div>
+        <div class="form-control-error" *ngFor="let error of errors.timeTo">
+          {{ error }}
+        </div>
+      </div>
+
+      <div class="active-wrapper">
+        <input
+          id="s1"
+          type="checkbox"
+          class="switch"
+          [(ngModel)]="hours.workingDay"
+        />
+        <span class="active-label">Radni dan</span>
+      </div>
+
+      <button
+        type="submit"
+        class="button button-green submit-button"
+        *ngIf="loading === false"
+        (click)="submit()"
+      >
+        SPREMI
+      </button>
+
+      <button
+        type="submit"
+        value="add user"
+        class="button button-green submit-loading"
+        *ngIf="loading === true"
+      >
+        <div class="lds-ring lds-ring-white loading-submit">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </button>
+    </div>
+    <div class="auth-form-whitespace">
+      <img
+        src="assets/svg/close.svg"
+        alt="close-icon"
+        class="close-icon"
+        (click)="closeOverlay()"
+      />
+    </div>
+  </div>
+</div>

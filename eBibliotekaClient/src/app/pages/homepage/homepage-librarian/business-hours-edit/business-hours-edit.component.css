@@ -1,0 +1,9 @@
+.time-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+}
+
+.auth-wrapper > .image-gray {
+  background-color: #222222;
+}

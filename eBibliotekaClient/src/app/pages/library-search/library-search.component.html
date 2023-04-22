@@ -1,0 +1,9 @@
+<app-library-search-list
+  *ngIf="searchType === getSearchType().List"
+  (onTypeSwitch)="setSearchType(getSearchType().Map)"
+></app-library-search-list>
+
+<app-library-search-map
+  *ngIf="searchType === getSearchType().Map"
+  (onTypeSwitch)="setSearchType(getSearchType().List)"
+></app-library-search-map>

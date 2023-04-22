@@ -1,0 +1,368 @@
+<div class="library-detail" ng-view autoscroll>
+  <div
+    class="banner"
+    [ngClass]="{ 'banner-edit': editing }"
+    style="background-image: url('{{ getBannerPath() }}')"
+  >
+    <div
+      class="banner-edit-background"
+      *ngIf="editing"
+      (click)="setShowBannerUpload(true)"
+    >
+      <img
+        src="assets/svg/upload-light.svg"
+        alt="upload-icon"
+        class="upload-icon-large"
+      />
+    </div>
+  </div>
+  <div class="wrapper info-wrapper">
+    <div class="heading">
+      <div
+        class="profile-pic"
+        style="background-image: url('{{ getProfileImagePath() }}')"
+      >
+        <div
+          class="profile-pic-edit-background"
+          *ngIf="editing"
+          (click)="setShowProfileImgUpload(true)"
+        >
+          <img
+            src="assets/svg/upload-light.svg"
+            alt="upload-icon"
+            class="upload-icon-small"
+          />
+        </div>
+      </div>
+      <app-heading
+        text="{{ library.name }}"
+        size="l"
+        class="name"
+        *ngIf="!editing"
+      ></app-heading>
+      <input
+        type="text"
+        class="about-name-edit"
+        *ngIf="editing"
+        [(ngModel)]="libraryEdit.name"
+      />
+      <div
+        class="button-ghost-dark header-button"
+        (click)="setEditing(false)"
+        *ngIf="editing"
+      >
+        ODBACI
+      </div>
+      <div
+        class="button-green header-button"
+        (click)="updateLibrary()"
+        *ngIf="editing"
+      >
+        SPREMI
+      </div>
+      <div
+        class="button-ghost-dark header-button"
+        (click)="setShowBook(true)"
+        *ngIf="!editing"
+      >
+        DODAJ KNJIGU
+      </div>
+      <div
+        class="button-ghost-dark header-button"
+        (click)="setShowAuthors(true)"
+        *ngIf="!editing"
+      >
+        AUTORI
+      </div>
+      <div
+        class="button-ghost-dark header-button"
+        (click)="setShowSeries(true)"
+        *ngIf="!editing"
+      >
+        SERIJALI
+      </div>
+      <div
+        class="button-ghost-dark header-button"
+        (click)="setEditing(true)"
+        *ngIf="!editing"
+      >
+        UREDI
+      </div>
+    </div>
+    <div class="grid-1">
+      <div class="about-wrapper">
+        <div class="about-header">O biblioteci</div>
+
+        <div class="hours-missing" *ngIf="!library.about">
+          Trenutno nema informacija o biblioteci
+        </div>
+
+        <div class="about-text" *ngIf="!editing">{{ library.about }}</div>
+
+        <textarea
+          class="about-text-edit"
+          *ngIf="editing"
+          rows="4"
+          cols="50"
+          [(ngModel)]="libraryEdit.about"
+        ></textarea>
+      </div>
+      <div class="stats"></div>
+    </div>
+    <div class="grid-2">
+      <div class="offers-section">
+        <div class="about-header offers-header">
+          Članarina
+          <span
+            *ngIf="!newMembershipOffer"
+            class="offers-add-action"
+            (click)="setNewMembershipOffer(true)"
+            >Dodaj Ponudu</span
+          >
+          <span
+            *ngIf="newMembershipOffer"
+            class="offers-add-action offers-add-remove"
+            (click)="setNewMembershipOffer(false)"
+            >Ukloni novu ponudu</span
+          >
+        </div>
+
+        <div
+          class="offers-missing"
+          *ngIf="!library.membershipOffers.length && !newMembershipOffer"
+        >
+          Niste dodali ni jednu ponudu za članarinu
+        </div>
+
+        <app-slider
+          class="offers-slider"
+          [position]="membershipOfferSliderPos"
+          [noOfItems]="library.membershipOffers.length"
+          [itemWidth]="295"
+          [gapWidth]="25"
+        >
+          <app-membership-offer-auth
+            (onDelete)="MembershipOfferDeleted($event)"
+            (onUpdate)="MembershipOfferUpdated($event)"
+            *ngFor="let offer of library.membershipOffers"
+            class="mem-offer-card"
+            [offer]="offer"
+          ></app-membership-offer-auth>
+          <app-membership-offer-create
+            *ngIf="newMembershipOffer"
+            (onSubmit)="newMembershipOfferAdded($event)"
+          ></app-membership-offer-create>
+        </app-slider>
+      </div>
+      <div class="hours-wrapper">
+        <app-heading
+          text="RADNO VRIJEME"
+          size="s"
+          [centered]="true"
+          color="fff"
+        ></app-heading>
+        <div
+          class="hours-missing"
+          *ngIf="library.businessHours && !library.businessHours.length"
+        >
+          Trenutno nema informacija o radnom vremenu
+        </div>
+        <div class="business-hours-flex">
+          <app-business-hours-info
+            *ngFor="let item of library.businessHours"
+            [item]="item"
+            [auth]="true"
+            (onDelete)="DeleteBusinessHours($event)"
+            (onEdit)="EditBusinessHours($event)"
+          ></app-business-hours-info>
+          <div class="business-hours-btn" (click)="NewBusinessHours()">
+            DODAJ
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-heading
+      class="map-heading"
+      text="LOKACIJA BIBLIOTEKE"
+      size="m"
+      [centered]="true"
+    ></app-heading>
+  </div>
+
+  <div
+    class="map-add-wrapper"
+    *ngIf="!library.location"
+    (click)="addLocalNewLocation()"
+  >
+    Kliknite ovde da dodate lokaciju biblioteke
+  </div>
+
+  <!-- <div class="map-wrapper" *ngIf="library.location">
+    <div
+      class="location-edit-tooltip"
+      *ngIf="editingLocation && newLocation.latitude === -1"
+    >
+      Kliknite na kartu da odaberete lokaciju
+    </div>
+
+    <div class="location-edit">
+      <div
+        class="location-edit-btn location-edit-btn-red"
+        (click)="removeLocation()"
+        *ngIf="!editingLocation"
+      >
+        UKLONI
+      </div>
+      <div
+        class="location-edit-btn"
+        (click)="setLocationEditing(true)"
+        *ngIf="!editingLocation"
+      >
+        UREDI
+      </div>
+      <div
+        class="location-edit-btn"
+        (click)="setLocationEditing(false)"
+        *ngIf="editingLocation && !newLocalLocation"
+      >
+        ODBACI
+      </div>
+
+      <div
+        class="location-edit-btn"
+        (click)="removeLocalNewLocation()"
+        *ngIf="editingLocation && newLocalLocation"
+      >
+        ODBACI
+      </div>
+
+      <div
+        class="location-edit-btn"
+        *ngIf="editingLocation && newLocation.latitude === -1"
+      >
+        SPREMI
+      </div>
+
+      <div
+        class="location-edit-btn location-edit-btn-green"
+        (click)="submitNewLocation()"
+        *ngIf="
+          editingLocation &&
+          newLocation.latitude !== -1 &&
+          !locationSubmitLoading
+        "
+      >
+        SPREMI
+      </div>
+
+      <div
+        class="location-edit-btn location-edit-btn-loading"
+        *ngIf="locationSubmitLoading"
+      >
+        <div class="lds-ring lds-ring-white loading-submit">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <agm-map
+      class="map"
+      *ngIf="library.location"
+      [latitude]="library.location.latitude"
+      [longitude]="library.location.longitude"
+      [(zoom)]="newLocation.zoom"
+      (mapClick)="onMapClick($event)"
+    >
+      <agm-marker
+        *ngIf="!editingLocation && !newLocalLocation"
+        class="map-location"
+        [latitude]="library.location.latitude"
+        [longitude]="library.location.longitude"
+      >
+        <agm-info-window [isOpen]="true"
+          ><div class="map-location-name">{{ library.name }}</div>
+          <div class="map-location-desc">
+            {{ library.location.description }}
+          </div></agm-info-window
+        >
+      </agm-marker>
+
+      <agm-marker
+        *ngIf="editingLocation && newLocation.latitude !== -1"
+        class="map-location"
+        [latitude]="newLocation.latitude"
+        [longitude]="newLocation.longitude"
+      >
+        <agm-info-window [isOpen]="true"
+          ><div class="map-location-name">{{ library.name }}</div>
+          <input
+            class="location-desc-input"
+            type="text"
+            [(ngModel)]="newLocation.description"
+            placeholder="Dodatni opis lokacije"
+        /></agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div> -->
+  <div class="librarian-recommendations">
+    <app-heading
+      class="recommendations-heading"
+      text="PREPORUKE BIBLIOTEKARA"
+      size="m"
+      
+    ></app-heading>
+    <app-slider
+          class="recommendations-slider"
+          [noOfItems]="booksRecommendations.length"
+          [itemWidth]="295"
+          [gapWidth]="25"
+        >
+          <app-series-book-item *ngFor="let book of booksRecommendations" [book]="book" [isRecommedation]="true" [seriesID]="recommendationsID" (onDelete)="loadRecommendations()" ></app-series-book-item>
+          <button class="add-recommendation" (click)="showAddBookToRecommendations=true">+</button>
+        </app-slider>
+  </div>
+</div>
+
+<app-image-upload
+  *ngIf="showBannerUpload"
+  (onUploadSuccess)="setBanner($event)"
+  (onCloseOverlay)="setShowBannerUpload(false)"
+  [options]="bannerUploadOptions"
+></app-image-upload>
+
+<app-image-upload
+  *ngIf="showProfileImgUpload"
+  (onUploadSuccess)="setProfileImg($event)"
+  (onCloseOverlay)="setShowProfileImgUpload(false)"
+  [options]="profileImgUploadOptions"
+></app-image-upload>
+
+<app-authors-form
+  *ngIf="showAuthors"
+  (onCloseOverlay)="setShowAuthors(false)"
+></app-authors-form>
+<app-authors-form
+  *ngIf="showAuthors"
+  (onCloseOverlay)="setShowAuthors(false)"
+></app-authors-form>
+<app-add-book
+  *ngIf="showAddBook"
+  (onCloseOverlay)="setShowBook(false)"
+></app-add-book>
+
+<app-business-hours-edit
+  (onCloseOverlay)="setShowBusinessHoursEdit(false)"
+  *ngIf="showEditBusinessHours"
+  [hours]="businessHoursEdit"
+  (onSuccess)="FilterAlteredBusinessHours($event)"
+>
+</app-business-hours-edit>
+<app-series-auth
+  *ngIf="showSeries"
+  (onCloseOverlay)="setShowSeries(false)"
+></app-series-auth>
+
+<app-add-book-to-series *ngIf="showAddBookToRecommendations" [isRecommendation]="true"  (onActionComplete)="setShowAddBookToRecommendations(false)"></app-add-book-to-series>

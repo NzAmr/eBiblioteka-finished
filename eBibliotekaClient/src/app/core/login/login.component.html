@@ -1,0 +1,96 @@
+<div class="overlay-shadow">
+  <div class="overlay-item auth-wrapper">
+    <div
+      class="auth-form-image"
+      style="background-image: url('assets/img/auth-form-image2.png')"
+    ></div>
+    <div class="auth-form-content">
+      <div class="auth-header">
+        <app-heading text="PRIJAVA" size="m"></app-heading>
+      </div>
+
+      <div class="auth-accountType-wrapper">
+        <button
+          class="button button-auth-type"
+          [ngClass]="{
+            'button-auth-type-ghost': accountType == getAccountType.Library,
+            'button-auth-type-green': accountType == getAccountType.User
+          }"
+          (click)="setAccountType(getAccountType.User)"
+        >
+          ZA KORISNIKE
+        </button>
+        <button
+          class="button button-auth-type"
+          [ngClass]="{
+            'button-auth-type-ghost': accountType == getAccountType.User,
+            'button-auth-type-green': accountType == getAccountType.Library
+          }"
+          (click)="setAccountType(getAccountType.Library)"
+        >
+          ZA BIBLIOTEKE
+        </button>
+      </div>
+
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-control-small">
+          <label for="username">Korisničko ime</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="credentials.username"
+          />
+        </div>
+        <div class="form-control-small">
+          <label for="password">Lozinka</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="credentials.password"
+          />
+        </div>
+
+        <div class="form-control-error" *ngIf="invalidCredentials">
+          Pogrešno korisničko ime ili lozinka
+        </div>
+
+        <button
+          type="submit"
+          value="add user"
+          class="button button-green submit-button"
+          *ngIf="loading === false"
+        >
+          PRIJAVI SE
+        </button>
+
+        <button
+          type="submit"
+          value="add user"
+          class="button button-green submit-loading"
+          *ngIf="loading === true"
+        >
+        <div class="lds-ring lds-ring-white loading-submit">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        </button>
+      </form>
+      <div class="login-register-prompt">
+        Niste učlanjeni?
+        <span class="login-register-link">Registrujte novi račun</span>
+      </div>
+    </div>
+    <div class="auth-form-whitespace">
+      <img
+        src="assets/svg/close.svg"
+        alt="close-icon"
+        class="close-icon"
+        (click)="closeOverlay()"
+      />
+    </div>
+  </div>
+</div>

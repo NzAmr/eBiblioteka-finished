@@ -1,0 +1,76 @@
+.main-wrapper {
+  margin: 5px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  transition: border 0.2s;
+  border-radius: 5px;
+  position: relative;
+}
+.main-wrapper-auth:hover {
+  border: 1px solid #cfcfcf;
+  cursor: pointer;
+}
+.main-wrapper-auth:hover > .delete-btn {
+  opacity: 1;
+}
+
+.title {
+  color: #cfcfcf;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.time-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.time-wrapper div {
+  color: white;
+}
+
+.hours {
+  position: relative;
+  font-size: 48px;
+}
+
+.minutes {
+  font-family: "Roboto-Bold";
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  font-size: 20px;
+}
+
+.minutes-margin {
+  margin-right: 23px;
+}
+
+.separator {
+  font-size: 42px;
+  padding: 0 20px;
+}
+
+.delete-btn {
+  transition: opacity 0.5s;
+  opacity: 0;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: #303030;
+  color: #cfcfcf;
+  font-family: "Roboto-Light";
+  padding: 5px 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 50%;
+}
+.delete-btn:hover {
+  background-color: #c90d0d;
+}
+
+.working-day {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}

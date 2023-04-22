@@ -1,0 +1,18 @@
+<div class="slider-wrapper">
+  <div
+    class="content-wrapper"
+    [ngStyle]="{ transform: 'translateX(-' + GetSliderTransform() + 'px)' }"
+  >
+    <ng-content></ng-content>
+  </div>
+  <div class="back-button" (click)="back()" *ngIf="position !== 1">
+    <img src="assets/svg/page-back.svg" alt="forward-arrow" />
+  </div>
+  <div
+    class="next-button"
+    (click)="next()"
+    *ngIf="position !== noOfItems - 1 && position < noOfItems"
+  >
+    <img src="assets/svg/page-forward.svg" alt="forward-arrow" />
+  </div>
+</div>

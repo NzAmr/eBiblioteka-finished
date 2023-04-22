@@ -1,0 +1,50 @@
+<div class="table-wrapper" *ngIf="!registerPayment">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Razlog</th>
+      <th>Vrijeme uplate</th>
+      <th>Iznos</th>
+    </tr>
+    <tr *ngFor="let item of payments">
+      <td>{{ item.id }}</td>
+      <td>{{ item.reason }}</td>
+      <td>{{ formatDate(item.timeOfPayment) }}</td>
+      <td>{{ item.amount }}</td>
+    </tr>
+  </table>
+  <div class="action-button" (click)="setRegisterPayment(true)">
+    Evidentiraj uplatu
+  </div>
+</div>
+
+<div class="offers-section" *ngIf="registerPayment">
+  <div class="offers-missing" *ngIf="!offers.length && !offersLoading">
+    Biblioteka trenutno nema aktivnih ponuda za članarinu
+  </div>
+
+  <div class="loading-wrapper" *ngIf="offersLoading">
+    <div class="lds-ring lds-ring-large loading-search">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <app-slider
+    *ngIf="!offersLoading"
+    class="offers-slider"
+    [noOfItems]="offers.length"
+    [itemWidth]="295"
+    [gapWidth]="25"
+  >
+    <app-membership-offer
+      class="offers-offer"
+      *ngFor="let offer of offers"
+      [offer]="offer"
+      (onClick)="extendMembership(offer.id)"
+      [selected]="subscriptionOfferId === offer.id"
+    ></app-membership-offer>
+  </app-slider>
+</div>

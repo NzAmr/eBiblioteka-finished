@@ -1,0 +1,242 @@
+.about-name-edit {
+  border-radius: 5px;
+  padding: 10px 15px;
+  flex-grow: 2;
+  margin-top: 20px;
+  margin-left: 195px;
+  display: block;
+  color: #303030;
+  font-family: "Roboto-Light";
+  font-size: 20px;
+  border: 1px solid #e3e3e3;
+}
+.about-name-edit:focus {
+  outline: 1px solid #303030;
+}
+.about-text-edit {
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 10px;
+  color: #303030;
+  font-family: "Roboto-Light";
+  font-size: 18px;
+  line-height: 140%;
+  min-height: 300px;
+  resize: vertical;
+  width: 100%;
+  word-wrap: break-word;
+  border: 1px solid #e3e3e3;
+}
+.librarian-recommendations{
+  background-color: #303030;
+  height: 650px;
+}
+.add-recommendation{
+  height: 315px;
+    width: 225px;
+    font-size: 70px;
+    background-color: #303030;
+    color: #e3e3e3;
+    border-radius: 5px;
+}
+.recommendations-slider{
+  padding: 20px 70px;
+}
+.recommendations-heading{
+  color: #e3e3e3;
+}
+.header-button {
+  margin-top: 20px;
+  padding: 13px 35px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-left: 20px;
+  font-family: "Roboto-Light";
+  border-width: 1px;
+}
+.header-button:hover {
+  cursor: pointer;
+}
+
+.banner-edit-background {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  transition: 0.5s;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.banner-edit-background:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.upload-icon-large {
+  padding-top: 70px;
+  height: 80px;
+}
+
+.profile-pic-edit-background {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 7px;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.profile-pic-edit-background:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.upload-icon-small {
+  padding-top: 60px;
+  padding-left: 10px;
+  height: 60px;
+}
+
+.offers-add-action {
+  font-family: "Roboto-Light";
+  font-size: 16px;
+  color: #303030;
+  float: right;
+}
+
+.offers-add-remove {
+  color: red;
+}
+
+.offers-add-action:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #303030;
+}
+
+.offers-add-remove:hover {
+  text-decoration-color: red;
+}
+
+.business-hours-btn {
+  margin-top: 10px;
+  width: 90%;
+
+  padding: 15px;
+  border-radius: 5px;
+
+  color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+  font-style: "Roboto-Bold";
+  text-align: center;
+}
+.business-hours-btn:hover {
+  background-color: #e3e3e338;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.location-edit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.location-edit-btn {
+  padding: 14px 30px;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  display: inline-block;
+  border: 1px solid #303030;
+  transition: 0.2s background-color;
+  margin-left: 10px;
+}
+.location-edit-btn:hover {
+  background-color: #3030303b;
+  cursor: pointer;
+}
+
+.location-edit-btn-green {
+  width: 70px;
+  text-align: center;
+  background-color: #00d8b1;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: 0.2s background-color;
+}
+.location-edit-btn-green:hover {
+  background-color: rgba(6, 230, 189, 0.827);
+  cursor: pointer;
+}
+
+.location-edit-btn-red {
+  width: 70px;
+  text-align: center;
+  border-color: red;
+  color: red;
+}
+
+.location-edit-btn-loading {
+  width: 70px;
+  background-color: #00d8b1;
+  color: white;
+  padding: 12px 30px;
+  padding-top: 13px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: 0.2s background-color;
+}
+
+.map-wrapper {
+  position: relative;
+}
+
+.location-desc-input {
+  margin-top: 5px;
+  display: block;
+  box-sizing: border-box;
+  padding: 4px 6px;
+  margin-left: 1px;
+  font-family: "Roboto-Light";
+}
+
+.location-edit-tooltip {
+  position: absolute;
+  padding: 10px;
+  left: 10px;
+  top: 10px;
+  z-index: 10;
+  font-family: "Roboto-Light";
+  font-size: 24px;
+}
+
+.map-add-wrapper {
+  height: 650px;
+  background-color: #363636;
+  color: white;
+  font-family: "Roboto-Light";
+  font-size: 32px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 300px;
+  transition: 0.2s background-color ease-in;
+}
+
+.map-add-wrapper:hover {
+  cursor: pointer;
+  background-color: #3f3f3f;
+}

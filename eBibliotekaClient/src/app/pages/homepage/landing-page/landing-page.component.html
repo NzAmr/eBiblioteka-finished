@@ -1,0 +1,27 @@
+<div class="landing-page">
+  <app-landing-page-user *ngIf="accountType === getAccountType().User">
+  </app-landing-page-user>
+  <app-landing-page-librarian *ngIf="accountType === getAccountType().Library">
+  </app-landing-page-librarian>
+
+  <div class="account-button-wrapper">
+    <span
+      [ngClass]="{
+        'button-dark account-button-active':
+          accountType === getAccountType().User,
+        'account-button': accountType === getAccountType().Library
+      }"
+      (click)="setAccountType(getAccountType().User)"
+      >ZA KORISNIKE</span
+    >
+    <span
+      [ngClass]="{
+        'button-dark account-button-active':
+          accountType === getAccountType().Library,
+        'account-button': accountType === getAccountType().User
+      }"
+      (click)="setAccountType(getAccountType().Library)"
+      >ZA BIBLIOTEKE</span
+    >
+  </div>
+</div>

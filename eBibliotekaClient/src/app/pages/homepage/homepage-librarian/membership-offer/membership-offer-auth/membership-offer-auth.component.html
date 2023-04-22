@@ -1,0 +1,138 @@
+<div class="main-wrapper" *ngIf="!editing; else editingBlock">
+  <div class="content-wrapper">
+    <app-heading
+      size="s"
+      [centered]="true"
+      text="{{ offer.title }}"
+    ></app-heading>
+    <div class="description">{{ offer.description }}</div>
+    <div class="offer-grid">
+      <div class="grid-item">
+        <div class="grid-item-title title-books">Broj knjiga</div>
+
+        <div class="grid-item-flex">
+          <app-book-icon
+            class="grid-icon"
+            svgClass="membership-offer-icon"
+          ></app-book-icon>
+          <div class="grid-item-text">
+            {{ offer.noOfBooks }}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item">
+        <div class="grid-item-title title-price">Cijena (KM)</div>
+        <div class="grid-item-flex">
+          <app-wallet-icon
+            class="grid-icon"
+            svgClass="membership-offer-icon"
+          ></app-wallet-icon>
+          <div class="grid-item-text">
+            {{ offer.price.toFixed(2) }}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item grid-item-time">
+        <div class="grid-item-title title-time">Trajanje</div>
+        {{ offer.addedMonths }} mjeseci
+      </div>
+    </div>
+  </div>
+  <div class="button-ghost-dark action-dark" (click)="setEditing(true)">
+    UREDI
+  </div>
+  <div class="button-ghost-dark action-remove" (click)="remove()">UKLONI</div>
+</div>
+
+<ng-template #editingBlock>
+  <div class="main-wrapper">
+    <div class="content-wrapper">
+      <div class="form-control">
+        <div class="grid-item-title title-title">Naslov</div>
+        <input
+          type="text"
+          class="text-input title-input"
+          [(ngModel)]="offerEdit.title"
+        />
+      </div>
+      <div class="form-control form-control-desc">
+        <div class="grid-item-title title-desc">Opis</div>
+        <textarea
+          class="text-input desc-input"
+          [(ngModel)]="offerEdit.description"
+        ></textarea>
+      </div>
+      <div class="offer-grid">
+        <div class="grid-item-edit">
+          <div class="grid-item-title title-books">Broj knjiga</div>
+
+          <input
+            type="number"
+            class="grid-item-input"
+            [min]="1"
+            [(ngModel)]="offerEdit.noOfBooks"
+          />
+        </div>
+
+        <div class="grid-item-edit">
+          <div class="grid-item-title title-price">Cijena (KM)</div>
+          <input
+            type="number"
+            class="grid-item-input"
+            [min]="1"
+            [(ngModel)]="offerEdit.price"
+          />
+        </div>
+
+        <div class="grid-item-edit grid-item-time">
+          <div class="grid-item-title title-time">Trajanje</div>
+          <input
+            type="number"
+            class="grid-item-input"
+            [min]="1"
+            [(ngModel)]="offerEdit.addedMonths"
+          />
+        </div>
+      </div>
+
+      <div class="active-wrapper">
+        <input
+          id="s1"
+          type="checkbox"
+          class="switch"
+          [(ngModel)]="offerEdit.active"
+        />
+        <span class="active-label">Aktivna</span>
+      </div>
+    </div>
+
+    <div class="action-wrapper">
+      <div
+        class="button button-ghost-dark action-dark"
+        (click)="setEditing(false)"
+      >
+        ODBACI
+      </div>
+      <div
+        class="button button-green action-dark"
+        (click)="update()"
+        *ngIf="!submitLoading"
+      >
+        SPREMI
+      </div>
+      <div
+        class="button button-green action-dark submit-loading"
+        *ngIf="submitLoading"
+      >
+        <div class="lds-ring lds-ring-white loading-submit">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

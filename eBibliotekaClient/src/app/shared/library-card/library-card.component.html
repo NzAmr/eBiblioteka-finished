@@ -1,0 +1,45 @@
+<div
+  class="library-card-wrapper"
+  [ngClass]="{
+    'library-card-wrapper-action': showAction
+  }"
+  routerLink="/biblioteka/{{ library.id }}"
+>
+  <div
+    class="banner"
+    style="background-image: url('{{ getFullImagePath(library.bannerImage) }}')"
+  ></div>
+  <div
+    class="content"
+    [ngClass]="{
+      'content-action': showAction
+    }"
+  >
+    <div class="heading">
+      <div
+        class="profile-pic"
+        style="background-image: url('{{
+          getFullImagePath(library.profileImage)
+        }}')"
+      ></div>
+      <div class="name">{{ library.name }}</div>
+    </div>
+
+    <div class="about">
+      <div class="library-list-stats"></div>
+      <div
+        class="about-text"
+        [ngClass]="{
+          'about-text-action': showAction
+        }"
+      >
+        {{ getFormattedAbout() }}
+      </div>
+    </div>
+
+    <div class="action" *ngIf="showAction">
+      POSJETI STRANICU
+      <img src="assets/svg/forward-arrow-dark.svg" alt="forward-arrow" />
+    </div>
+  </div>
+</div>

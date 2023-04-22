@@ -1,0 +1,138 @@
+.book-content-wrapper {
+  display: grid;
+  grid-template-columns: 20% 5% 70%;
+
+  height: 50%;
+}
+
+.about-text-edit-wrapper {
+  padding: 20px;
+}
+.series-part {
+  margin-left: 15px;
+}
+.series {
+  border-radius: 5px;
+  padding: 2px;
+}
+.series:hover {
+  background-color: #00d8b1;
+}
+.about-text-edit {
+  font-family: "Roboto-Light";
+  display: block;
+  padding: 20px;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+  color: rgb(59, 59, 59);
+  font-size: 17px;
+  line-height: 130%;
+  height: 400px;
+}
+.author-edit {
+  text-align: left;
+  font-family: "Roboto-Light";
+  border: none;
+  background-color: #f9f9f9;
+  font-size: 20px;
+  border: solid 1px gray;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.available-edit {
+  font-family: "Roboto-Light";
+  padding: 12px 10px;
+  margin: 15px;
+  font-size: 20px;
+}
+
+.title-edit {
+  font-family: "Roboto-Light";
+  font-size: 30;
+  padding: 10px;
+}
+.title-button-edit {
+  display: flex;
+  margin-bottom: 10px;
+}
+.title-button-edit > input {
+  display: block;
+  flex-grow: 2;
+}
+.btn-save {
+  background-color: #00d8b1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.btn-return {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.about-text {
+  padding: 5px;
+  font-family: "Roboto-Light";
+}
+.title-button {
+  display: flex;
+}
+
+.btn-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.btn-edit {
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+.menu-button {
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 10px 30px;
+  margin-left: 10px;
+}
+
+.cover-edit-background {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  transition: 0.5s;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.cover-edit-background:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.upload-icon-large {
+  padding-top: 160px;
+  height: 80px;
+}
+
+.tag-button {
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #e3e3e3;
+  font-family: "Roboto-Light";
+  padding: 5px 10px;
+  transition: 0.2s all;
+}
+
+.tag-button:hover {
+  cursor: pointer;
+  border: 1px solid #303030;
+}

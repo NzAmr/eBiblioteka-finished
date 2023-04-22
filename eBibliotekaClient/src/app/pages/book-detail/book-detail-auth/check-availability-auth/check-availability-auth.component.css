@@ -1,0 +1,30 @@
+.main-wrapper {
+  width: fit-content;
+  margin: auto;
+  margin-top: 100px;
+  width: 500px;
+  position: relative;
+  padding: 20px;
+}
+
+.close-wrapper {
+  text-align: right;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.title {
+  text-align: center;
+  color: #5c5c5c;
+  font-size: 26px;
+  padding-top: 20px;
+}
+
+.author {
+  text-align: center;
+  color: #5c5c5c;
+  font-family: "Roboto-Light";
+  font-size: 16px;
+  padding-bottom: 20px;
+}

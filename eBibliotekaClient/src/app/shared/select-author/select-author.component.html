@@ -1,0 +1,29 @@
+
+<div class="overlay-shadow">
+    <div class="overlay-item upload-wrapper">
+      <div class="upload-header">
+        <app-heading text="AUTORI" size="m"></app-heading>
+        <div class="upload-close-wrapper">
+          <img src="assets/svg/close.svg" alt="close-icon" class="close-icon" (click)="closeOverlay()" />
+        </div>
+      </div>
+  
+      <div class="search-authors-wrapper">
+  
+        <input type="text" class="text" placeholder="Unesite ime ili prezime autora" [(ngModel)]="filter"
+          (ngModelChange)="load()">
+        <button class="button button-dark" (click)="load()">PRETRAŽI</button>
+  
+      </div>
+  
+      
+      <div class="authors-result">
+  
+        <app-author-item *ngFor="let author of authors" [author]="author" (sendAuthor)="recieveAuthor(author)"></app-author-item>
+  
+      </div>
+  
+      
+  
+    </div>
+  </div>

@@ -1,0 +1,91 @@
+.main-wrapper {
+  width: fit-content;
+  margin: auto;
+  margin-top: 100px;
+}
+.main-flex {
+  display: flex;
+  padding: 30px;
+  padding-top: 0;
+}
+.calendar-section {
+  margin: auto;
+  width: 500px;
+  align-items: center;
+  border-radius: 5px;
+}
+.form-section {
+  width: 400px;
+  padding-left: 30px;
+  align-self: center;
+}
+.close-wrapper {
+  text-align: right;
+  padding: 15px 15px 0 0;
+}
+
+.book-title {
+  font-size: 34px;
+  color: #303030;
+}
+
+.book-author {
+  font-family: "Roboto-Light";
+  color: #303030;
+  font-size: 16px;
+}
+
+.dostupno {
+  padding-top: 70px;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.form-control {
+  padding: 15px 0;
+}
+.form-control > label {
+  display: block;
+  color: #a5a5a5;
+  font-size: 13px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-family: "Roboto-Bold";
+}
+.form-control > input {
+  display: block;
+  width: calc(100% - 30px);
+  box-sizing: border-box;
+  color: #303030;
+  font-size: 14px;
+  padding: 14px;
+  border: 1px solid #dadada;
+  background-color: #f9f9f9;
+  border-radius: 7px;
+}
+
+.submit-button {
+  font-size: 16px;
+  margin-top: 25px;
+  padding: 14px;
+  width: 100%;
+}
+
+.submit-loading {
+  font-size: 16px;
+  margin-top: 25px;
+  padding: 11px;
+  padding-top: 12px;
+  width: 100%;
+}
+
+.input-error {
+  font-size: 13px;
+  font-family: "Roboto-Light";
+  color: red;
+  margin-top: 5px;
+}
+
+.form-control > input::placeholder {
+  font-family: "Roboto-Light";
+}

@@ -1,0 +1,53 @@
+ .book-list-item {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .cover {
+    height: 315px;
+    width: 225px;
+    margin: auto;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .btn {
+    border-radius: 5px;
+    width: 225px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 15px;
+    font-family: "Roboto-Bold";
+    margin: auto;
+  }
+  .btn-white{
+    background-color: #FFFFFF ;
+    color: black;
+  }
+  .about-text {
+    font-family: "Roboto-Bold";
+    margin: 20px 0;
+    color: #303030;
+    font-size: 22px;
+    flex-grow: 2;
+    text-align: center;
+  }
+  .author-name {
+    font-family: "Roboto-Light";
+    color: #303030;
+    font-size: 16px;
+  }
+  .btn-delete{
+    background-color: red;
+    margin-top: 5px;
+  }
+  .author-name-r {
+    font-family: "Roboto-Light";
+    color: #e3e3e3;
+    font-size: 16px;
+  }
+  .book-title-r{
+    color: #e3e3e3;
+  }

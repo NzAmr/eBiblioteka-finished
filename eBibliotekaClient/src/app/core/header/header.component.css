@@ -1,0 +1,92 @@
+header {
+  background-color: rgba(20, 20, 20, 0.9);
+  padding: 13px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.header-margin {
+  height: 59px;
+  background-color: black;
+}
+
+.header-logo {
+  height: 22px;
+}
+.header-logo:hover {
+  cursor: pointer;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.header-links {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.header-item {
+  font-size: 13px;
+  margin-left: 20px;
+  transition: 0.1s;
+}
+.header-item:hover {
+  color: white;
+  cursor: pointer;
+}
+.header-link {
+  position: relative;
+  color: #cfcfcf;
+}
+.header-highlight {
+  position: absolute;
+  top: 18px;
+  left: calc(50% - 24px);
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #00d8b1;
+}
+.header-link-active {
+  color: white;
+}
+
+.header-btn {
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin-left: 12px;
+}
+.header-btn-ghost {
+  color: #cfcfcf;
+}
+.header-btn-ghost:hover {
+  color: white;
+  border-color: white;
+}
+
+.header-btn:first {
+  margin-left: 20px;
+}
+
+.header-separator {
+  color: #858585;
+  margin: 0px 10px 0px 20px;
+}
+
+.header-icon-wrappper {
+  box-sizing: border-box;
+  margin: 0 5px;
+  justify-content: center;
+  height: 32px;
+}
+.bell-icon{
+  height: 15px;
+  width: 15px;
+  margin-left: 5px;
+}

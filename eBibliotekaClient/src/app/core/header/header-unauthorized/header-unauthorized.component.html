@@ -1,0 +1,39 @@
+<div
+  class="header-item header-link"
+  [ngClass]="{ 'header-link-active': url == '' }"
+  routerLink="/"
+>
+  NASLOVNA
+  <div class="header-highlight" *ngIf="url == ''"></div>
+</div>
+<div
+  class="header-item header-link"
+  [ngClass]="{ 'header-link-active': url == '/biblioteke' }"
+  routerLink="/biblioteke"
+>
+  BIBLIOTEKE
+  <div class="header-highlight" *ngIf="url == '/biblioteke'"></div>
+</div>
+<div class="header-separator">|</div>
+<button
+  class="header-item header-btn button-ghost header-btn-ghost"
+  (click)="setShowLogin(true)"
+>
+  PRIJAVA
+</button>
+<button
+  class="header-item header-btn button-green"
+  (click)="setShowRegister(true)"
+>
+  REGISTRACIJA
+</button>
+
+<app-register *ngIf="showRegister" (onCloseOverlay)="setShowRegister(false)">
+</app-register>
+
+<app-login
+  *ngIf="showLogin"
+  (onCloseOverlay)="setShowLogin(false)"
+  [homepageAfterLogin]="homepageAfterLogin"
+>
+</app-login>

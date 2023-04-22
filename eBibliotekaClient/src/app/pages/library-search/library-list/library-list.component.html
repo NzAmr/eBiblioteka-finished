@@ -1,0 +1,78 @@
+<div class="library-list-wrapper" *ngIf="loading === false">
+  <div class="library-list-no-items" *ngIf="libraries.length === 0">
+    Nije pronađena biblioteka koja odgovara unesenom kriteriju<br />
+    <p>Provjerite uneseni sadžaj pa pokušajte ponovo</p>
+  </div>
+
+  <div class="library-list-item" *ngFor="let library of libraries">
+    <div class="content-side" routerLink="/biblioteka/{{ library.id }}">
+      <div
+        class="banner"
+        style="background-image: url('{{ getFullPath(library.bannerImage) }}')"
+      ></div>
+      <div class="content">
+        <div class="heading">
+          <div
+            class="profile-pic"
+            style="background-image: url('{{
+              getFullPath(library.profileImage)
+            }}')"
+          ></div>
+          <div class="name">{{ library.name }}</div>
+        </div>
+
+        <div class="about">
+          <div class="about-text">{{ getFormattedAbout(library) }}</div>
+          <div class="library-list-stats"></div>
+        </div>
+        <div class="action">
+          POSJETI STRANICU
+          <img src="assets/svg/forward-arrow-dark.svg" alt="forward-arrow" />
+        </div>
+      </div>
+    </div>
+    <div class="map-side">
+      <!-- <div *ngIf="library.location">
+        <agm-map
+          class="map"
+          [latitude]="library.location.latitude"
+          [longitude]="library.location.longitude"
+          [zoom]="library.location.zoom"
+          [scrollwheel]="false"
+        >
+          <agm-marker
+            class="map-location"
+            [latitude]="library.location.latitude"
+            [longitude]="library.location.longitude"
+          >
+            <agm-info-window
+              ><div class="map-location-name">{{ library.name }}</div>
+              <div class="map-location-desc">
+                {{ library.location.description }}
+              </div></agm-info-window
+            >
+          </agm-marker>
+        </agm-map> 
+      </div> -->
+
+      <div class="membership-wrapper" *ngIf="library.isMember">
+        Učlanjeni
+        <img
+          src="assets/svg/checkmark-white.svg"
+          alt="checkmark-green"
+          class="checkmark-icon"
+        />
+      </div>
+
+      <div class="map-missing">Lokacija nije specificirana</div>
+    </div>
+  </div>
+</div>
+<div class="library-list-loading-wrapper" *ngIf="loading">
+  <div class="lds-ring lds-ring-large loading-search">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

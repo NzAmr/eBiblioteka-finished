@@ -1,0 +1,32 @@
+<div class="overlay-shadow">
+    <div class="overlay-item upload-wrapper">
+      <div class="upload-header">
+        <app-heading text="KNJIGE" size="m"></app-heading>
+        <div class="upload-close-wrapper">
+          <img src="assets/svg/close.svg" alt="close-icon" class="close-icon" (click)="onComplete()" />
+        </div>
+      </div>
+  
+      <div class="search-books-wrapper">
+  
+        <input type="text" [(ngModel)]="filter" class="text" placeholder="Unesite naslov knjige"
+         (ngModelChange)="loadBooks()" >
+        <button class="button button-dark">PRETRAŽI</button>
+  
+      </div>
+  
+      
+      <div class="books-result">
+        
+        <app-add-book-item *ngFor="let book of books" 
+        [book]="book"
+        (addBookID)="addBookToSeries($event)"
+        (onActionComplete)="onComplete()"
+        ></app-add-book-item>
+  
+      </div>
+  
+      
+  
+    </div>
+  </div>

@@ -1,0 +1,43 @@
+<div class="banner" style="background-image: url('assets/img/user-banner.png')">
+    <div
+      class="profile-picture"
+      style="background-image: url('{{ getProfileImagePath() }}')"
+    >
+      <div
+        class="profile-pic-edit-background"
+        (click)="setShowProfileImgUpload(true)"
+      >
+        <img
+          src="assets/svg/upload-light.svg"
+          alt="upload-icon"
+          class="upload-icon-small"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="account-wrapper">
+    <div class="wrapper-small content-wrapper">
+      <div class="left-side">
+        <app-update-account [account]="account" [accountType]="getAccountType.Library"></app-update-account>
+        <app-update-password [accountType]="getAccountType.Library"></app-update-password>
+      </div>
+      <div class="details-wrapper">
+        <div class="info-control">
+          <label for="username">Datum učlanjivanja</label>
+          <div class="details">{{ FormatDate(account.createdAt) }}</div>
+        </div>
+        <div class="info-control">
+          <label for="username">Datum zadnje izmjene</label>
+          <div class="details">{{ FormatDate(account.updatedAt) }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-image-upload
+  *ngIf="showProfileImgUpload"
+  (onUploadSuccess)="setProfileImg($event)"
+  (onCloseOverlay)="setShowProfileImgUpload(false)"
+  [options]="profileImgUploadOptions"
+>
+</app-image-upload>

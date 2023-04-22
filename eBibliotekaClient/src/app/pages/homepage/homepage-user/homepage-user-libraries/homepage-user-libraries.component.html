@@ -1,0 +1,28 @@
+<div class="no-items" *ngIf="!loading && items.length === 0">
+  Niste se učlanili ni u jednu biblioteku
+</div>
+<app-slider
+  class="books-slider"
+  [noOfItems]="items.length"
+  [itemWidth]="510"
+  [gapWidth]="30"
+  *ngIf="!loading"
+>
+  <div class="library-list-wrapper">
+    <app-library-card
+      class="library-card"
+      [showAction]="true"
+      *ngFor="let item of items"
+      [library]="item"
+    ></app-library-card>
+  </div>
+</app-slider>
+
+<div class="loading-wrapper" *ngIf="loading">
+  <div class="lds-ring lds-ring-large loading-search">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

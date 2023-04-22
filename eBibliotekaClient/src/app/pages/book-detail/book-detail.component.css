@@ -1,0 +1,81 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #e6e6e6;
+    height: 600px;
+    width: 70%;
+    
+    margin-top: 20px;
+}
+.page-wrapper{
+    background-color: #e6e6e6;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+.book-content-wrapper{
+    display: grid;
+    grid-template-columns: 20% 5% 70% ;
+    
+    height: 50%;
+}
+.image{
+    height: 350px;
+    width: 250px;
+    
+    margin: auto;
+    display: block;
+}
+.title{
+    padding: 7px 20px;
+}
+.author-series{
+    padding: 7px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 400px;
+    border-bottom: 10px solid #00D8B1 ;
+}
+.author{
+    font-family: "Roboto-Light";
+}
+.series{
+    font-family: "Roboto-Light";
+}
+.about-wrapper{
+    display: grid;
+    grid-template-rows: 10% 10% 60% 20px;
+    background-color: #F9F9F9;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.about-text{
+    padding: 5px;
+    font-family: "Roboto-Light";
+    border-bottom: 1px solid gray;
+}
+.available{
+    padding: 15px;
+    background-color: white;
+    margin: 15px;
+    text-align: center;
+    border-radius: 5px;
+    
+}
+.image-button-wrapper{
+    margin-right: 10px;
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+.btn{
+background-color: #00D8B1 ;
+padding: 10px;
+width: 90%;
+margin: 15px;
+border: none;
+border-radius: 5px;
+color: white;
+font-family: "Roboto-Light";
+font-size: 20px;
+box-sizing: border-box;
+}

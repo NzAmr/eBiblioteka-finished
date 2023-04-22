@@ -1,0 +1,49 @@
+<div
+  class="book-list-no-items"
+  *ngIf="members.length === 0 && loading === false"
+>
+  Nije pronađen član koja odgovara unesenom kriteriju<br />
+  <p>Provjerite uneseni sadžaj pa pokušajte ponovo</p>
+</div>
+<div class="grid-wrapper" *ngIf="loading === false">
+  <div class="grid-item" *ngFor="let member of members">
+    <div class="account-section">
+      <div
+        class="profile-picture"
+        style="background-image: url('{{
+          getFullImagePath(member.profileImage)
+        }}')"
+      ></div>
+      <div class="info-section">
+        <div class="name">{{ member.firstName }} {{ member.lastName }}</div>
+        <div class="username">{{ member.username }}</div>
+        <div class="email">{{ member.email }}</div>
+      </div>
+    </div>
+
+    <div class="lower-grid">
+      <div class="mem-info-item">
+        <div class="mem-info-title title-join">Učlanjeni</div>
+        {{ getFormattedDate(member.joinDate) }}
+      </div>
+
+      <div class="mem-info-item">
+        <div class="mem-info-title title-expiration">Članarina ističe</div>
+        {{ getFormattedDate(member.expirationDate) }}
+      </div>
+
+      <div class="mem-info-item">
+        <div class="mem-info-title title-debt">Dug</div>
+        Nema dugova
+      </div>
+
+      <div class="action" (click)="selectUser(member.id)">
+        {{ actionText }}
+        <img src="assets/svg/back-arrow-dark.svg" alt="back-arrow" />
+      </div>
+      <button class="btn" (click)="addInputID(member.userID)" (click)="setShowSendNotification(true)">ŠALJI NOTIFIKACIJU</button>
+    </div>
+  </div>
+</div>
+ 
+<app-send-notification *ngIf="showSendNotification" [userID]="currentMemberID" (onActionComplete)="setShowSendNotification(false)"></app-send-notification>

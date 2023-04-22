@@ -1,0 +1,27 @@
+<div class="library-search-main" ng-view autoscroll>
+  <div class="wrapper">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        class="search-input"
+        [(ngModel)]="filter"
+        placeholder="Unesite kriterij za pretraživanje"
+      />
+      <button class="search-button button-dark" (click)="search()">
+        PRETRAŽI
+      </button>
+    </div>
+    <app-book-list
+      [books]="pagedList.dataItems"
+      [libraryId]="libraryId"
+      [loading]="loading"
+      (onActionClick)="selectBook($event)"
+    ></app-book-list>
+    <app-pagination
+      [data]="pagedList.navigation"
+      (onNavigate)="loadPage($event)"
+    ></app-pagination>
+  </div>
+</div>

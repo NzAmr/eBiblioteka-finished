@@ -1,0 +1,176 @@
+.map-wrapper {
+  background-color: rgb(138, 138, 138);
+  height: calc(100vh - 59px);
+  position: relative;
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  font-size: 22px;
+}
+
+.map {
+  height: calc(100vh - 59px);
+}
+
+.map-location-name {
+  font-size: 22px;
+}
+
+.map-location-desc {
+  font-family: "Roboto-Light";
+  font-size: 18px;
+}
+
+.card-position {
+  position: absolute;
+  bottom: 20px;
+  left: calc(50% - 415px);
+}
+
+.card-wrapper {
+  width: 830px;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.card-wrapper:hover {
+  cursor: pointer;
+}
+
+.banner {
+  border-radius: 7px 0 0 0;
+  background-color: #999999;
+  height: 120px;
+  flex-basis: fill;
+  background-size: cover;
+  background-position: center;
+}
+.map-side {
+  background-color: #c9c9c9;
+  border-radius: 0 7px 7px 0;
+  overflow: hidden;
+  position: relative;
+}
+.content {
+  height: 200px;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 15px;
+  background-color: #f9f9f9;
+  position: relative;
+  border-radius: 0 0 0 7px;
+}
+.heading {
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+}
+.profile-pic {
+  background-color: #f9f9f9;
+  position: absolute;
+  top: -85px;
+  left: 5px;
+  border: 1px solid #e3e3e3;
+  height: 110px;
+  width: 110px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+.name {
+  color: #303030;
+  font-size: 24px;
+  padding-left: 135px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 82% 18%;
+}
+.about-text {
+  font-family: "Roboto-Light";
+  color: #303030;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.library-list-stats {
+  border: 1px solid #e3e3e3;
+  height: 100px;
+  border-radius: 7px;
+  margin-bottom: auto;
+}
+
+.action {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 15px;
+}
+.action > img {
+  height: 12px;
+  padding: 0 5px 0 0;
+  transition: padding 0.1s;
+}
+
+.card-wrapper:hover .action > img {
+  padding: 0 0 0 5px;
+  background-color: #f9f9f9;
+}
+.library-list-loading-wrapper {
+  height: 250px;
+  align-items: center;
+  text-align: center;
+}
+
+.membership-wrapper {
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  right: 20px;
+  background-color: #00d8b1;
+  padding: 12px 22px;
+  color: white;
+  font-family: "Roboto-Bold";
+  letter-spacing: 1px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.checkmark-icon {
+  width: 18px;
+}
+
+.close-wrapper {
+  position: absolute;
+  z-index: 10;
+  top: -60px;
+  right: 0px;
+  padding: 10px 12px;
+  border-radius: 50%;
+  background-color: rgb(48, 48, 48, 0.8);
+  transition: background-color 0.2s;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.close-wrapper:hover {
+  cursor: pointer;
+  background-color: rgb(27, 27, 27, 0.9);
+}
+
+.close-wrapper > img {
+  width: 20px;
+  vertical-align: baseline;
+  padding-top: 2px;
+}
+
+.loading-card-wrapper {
+  padding-top: 126px;
+  padding-bottom: 114px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 7px;
+}

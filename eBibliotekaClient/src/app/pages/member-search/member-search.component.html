@@ -1,0 +1,31 @@
+<div class="library-search-main">
+  <div class="wrapper">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        class="search-input"
+        [(ngModel)]="filter"
+        placeholder="Unesite kriterij za pretraživanje"
+      />
+      <button class="search-button button-dark" (click)="search()">
+        PRETRAŽI
+      </button>
+    </div>
+    <app-member-list
+      [members]="pagedList.dataItems"
+      (onActionClick)="selectUser($event)"
+    ></app-member-list>
+    <app-pagination
+      [data]="pagedList.navigation"
+      (onNavigate)="loadPage($event)"
+    ></app-pagination>
+  </div>
+</div>
+
+<app-member-details
+  [userID]="selectedUser"
+  *ngIf="selectedUser !== -1"
+  (onCloseOverlay)="selectUser(-1)"
+></app-member-details>

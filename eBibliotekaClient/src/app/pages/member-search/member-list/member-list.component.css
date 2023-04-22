@@ -1,0 +1,133 @@
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 55px;
+  row-gap: 55px;
+
+  padding: 50px 0;
+}
+
+.book-list-no-items {
+  font-size: 36px;
+  color: #303030;
+  font-family: "Roboto-Light";
+  margin-top: 60px;
+}
+.book-list-no-items > p {
+  font-size: 24px;
+  color: #303030;
+  font-family: "Roboto-Light";
+  margin-top: 10px;
+}
+
+.grid-item {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.account-section {
+  display: flex;
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  border: 1px solid #e3e3e3;
+  background-size: cover;
+  background-position: center;
+}
+
+.info-section {
+  padding-left: 15px;
+}
+
+.name {
+  font-size: 23px;
+  color: #303030;
+}
+
+.username,
+.email {
+  margin-top: 4px;
+  font-size: 18px;
+  font-family: "Roboto-Light";
+  color: #303030;
+}
+
+.lower-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 15px;
+}
+
+.mem-info-item {
+  border: 1px solid #e3e3e3;
+  position: relative;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Roboto-Light";
+  color: #303030;
+  border-radius: 5px;
+}
+
+.mem-info-title {
+  top: -10px;
+  color: #303030;
+  position: absolute;
+  font-size: 16px;
+  color: #787e86;
+  background-color: #f9f9f9;
+  padding: 0 5px;
+  font-family: "Roboto-Light";
+}
+
+.title-join {
+  left: calc(50% - 37px);
+}
+
+.title-expiration {
+  left: calc(50% - 59px);
+}
+
+.title-debt {
+  left: calc(50% - 19px);
+}
+
+.action {
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-family: "Roboto-Light";
+  color: #303030;
+}
+
+.action > img {
+  padding-top: 2px;
+  width: 13px;
+  transform: rotate(180deg);
+  padding-left: 3px;
+
+  padding-right: 0px;
+  transition: padding 0.2s;
+}
+
+.action:hover {
+  cursor: pointer;
+}
+.action:hover > img {
+  padding-right: 3px;
+  padding-left: 0px;
+}
+.btn{
+  padding: 7px;
+  background-color: cyan  ;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-family: "Roboto-Light";
+}

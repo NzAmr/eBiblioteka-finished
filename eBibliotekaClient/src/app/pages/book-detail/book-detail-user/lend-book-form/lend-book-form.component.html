@@ -1,0 +1,62 @@
+<div class="overlay-shadow" [ngStyle]="{ top: getScrollPos() + 'px' }">
+  <div class="overlay-item main-wrapper">
+    <div class="close-wrapper">
+      <img
+        src="assets/svg/close.svg"
+        alt="close-icon"
+        class="close-icon"
+        (click)="closeOverlay()"
+      />
+    </div>
+
+    <div class="main-flex">
+      <div class="calendar-section">
+        <app-date-picker
+          [returnDate]="returnDate"
+          (onDateClick)="selectDate($event)"
+        ></app-date-picker>
+      </div>
+      <div class="form-section">
+        <div class="book-title">{{ book.title }}</div>
+        <div class="book-author">{{ book.author.name }}</div>
+        <div class="dostupno">DOSTUPNO 5/{{ book.numberOfCopies }}</div>
+        <div class="form-control">
+          <label for="">VRIJEME IZNAJMLJIVANJA</label>
+          <input type="datetime-local" [(ngModel)]="lendDate" disabled />
+        </div>
+
+        <div class="form-control">
+          <label for="">ROK ZA POVRATAK</label>
+          <input
+            type="datetime-local"
+            [(ngModel)]="returnDate"
+            (ngModelChange)="onReturnDateChange()"
+          />
+          <div class="input-error" *ngFor="let error of errors">
+            {{ error }}
+          </div>
+        </div>
+
+        <button
+          class="button button-green submit-button"
+          (click)="submit()"
+          *ngIf="loading !== true"
+        >
+          POSUDI KNJIGU
+        </button>
+
+        <button
+          class="button button-green submit-loading"
+          *ngIf="loading === true"
+        >
+          <div class="lds-ring lds-ring-white loading-submit">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+.library-search-main {
+  background-color: #e6e6e6;
+  padding: 60px 0;
+  padding-top: 30px;
+  position: relative;
+}
+.title {
+  padding-top: 5px;
+  font-family: "Roboto-Bold";
+  font-size: 29px;
+  padding-bottom: 30px;
+}
+.search-wrapper {
+  display: flex;
+  width: 100%;
+}
+.search-wrapper:focus {
+  outline: 1px solid #424242;
+  background-color: white;
+}
+.search-input {
+  padding: 15px;
+  font-family: "Roboto-Light";
+  font-size: 15px;
+  border: none;
+  border-radius: 7px 0 0 7px;
+  background-color: #f5f5f5;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+.search-input:focus {
+  outline: none;
+  background-color: white;
+}
+.search-button {
+  padding: 15px 50px;
+  font-size: 15px;
+  border: none;
+  border-radius: 7px;
+  background-color: #303030;
+  color: white;
+}
+
+app-library-list {
+  min-height: 600px;
+}
+.mode-button-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.mode-button {
+  display: inline-block;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 18px;
+  width: 140px;
+  border: 1px solid #303030;
+  color: #303030;
+  margin-left: 20px;
+  border-radius: 7px;
+  transition: 0.2s background-color;
+}
+
+.mode-button-active {
+  padding: 13px 0;
+  color: white;
+  background-color: #00d8b1;
+  border: none;
+}
+
+.mode-button:hover {
+  background-color: #4242421a;
+  cursor: pointer;
+}
+
+.mode-button-active:hover {
+  background-color: #07e4bb;
+  cursor: pointer;
+}

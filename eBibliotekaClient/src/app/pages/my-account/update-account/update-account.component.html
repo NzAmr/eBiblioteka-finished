@@ -1,0 +1,116 @@
+<div class="info-wrapper">
+  <div class="info-control">
+    <label for="email">EMAIL</label>
+    <input
+      type="text"
+      [(ngModel)]="account.email"
+      disabled
+      *ngIf="!editingInfo"
+    />
+    <input
+      type="text"
+      [(ngModel)]="accountEdit.email"
+      *ngIf="editingInfo"
+      (change)="emailChange()"
+      [ngClass]="{
+        'input-error': errors.email.length !== 0
+      }"
+    />
+    <div class="form-control-error" *ngFor="let error of errors.email">
+      {{ error }}
+    </div>
+  </div>
+  <div class="info-control">
+    <label for="username">KORISNIČKO IME</label>
+    <input
+      type="text"
+      [(ngModel)]="account.username"
+      disabled
+      *ngIf="!editingInfo"
+    />
+    <div class="form-control-username-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="accountEdit.username"
+        *ngIf="editingInfo"
+        (change)="usernameChange()"
+        [ngClass]="{
+          'input-error': errors.username.length !== 0
+        }"
+      />
+      <div class="lds-ring loading-username" *ngIf="usernameLoading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <img
+        src="assets/svg/checkmark-green.svg"
+        alt="checkmark-green"
+        class="close-icon"
+        *ngIf="usernameValid"
+      />
+    </div>
+    <div class="form-control-error" *ngFor="let error of errors.username">
+      {{ error }}
+    </div>
+  </div>
+  <div class="info-control">
+    <label for="firstName">IME</label>
+    <input
+      type="text"
+      [(ngModel)]="account.firstName"
+      disabled
+      *ngIf="!editingInfo"
+    />
+    <input
+      type="text"
+      [(ngModel)]="accountEdit.firstName"
+      *ngIf="editingInfo"
+    />
+  </div>
+  <div class="info-control">
+    <label for="lastName">PREZIME</label>
+    <input
+      type="text"
+      [(ngModel)]="account.lastName"
+      disabled
+      *ngIf="!editingInfo"
+    />
+    <input type="text" [(ngModel)]="accountEdit.lastName" *ngIf="editingInfo" />
+  </div>
+  <div
+    class="button button-ghost-dark account-button"
+    *ngIf="!editingInfo"
+    (click)="setEditingInfo(true)"
+  >
+    UREDI PROFIL
+  </div>
+  <div class="button-grid">
+    <div
+      class="button button-ghost-dark account-button"
+      *ngIf="editingInfo"
+      (click)="setEditingInfo(false)"
+    >
+      ODBACI
+    </div>
+    <div
+      class="button button-green account-button"
+      *ngIf="editingInfo && !editingInfoLoading"
+      (click)="updateInfo()"
+    >
+      SPREMI
+    </div>
+    <div
+      class="button button-green account-button account-button-loading"
+      *ngIf="editingInfoLoading"
+    >
+      <div class="lds-ring lds-ring-white loading-submit">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+.lent-books-wrapper {
+  height: 450px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.book-list-no-items {
+  font-size: 36px;
+  color: #303030;
+  font-family: "Roboto-Light";
+  margin-top: 60px;
+}
+
+.book-list-no-items > p {
+  font-size: 24px;
+  color: #303030;
+  font-family: "Roboto-Light";
+  margin-top: 10px;
+}
+
+.book-list-item {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0px;
+  margin-right: 35px;
+}
+
+.cover {
+  height: 270px;
+  width: 198px;
+  margin: 0px auto;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn {
+  border-radius: 5px;
+  width: 225px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 15px;
+  font-family: "Roboto-Bold";
+}
+
+.about-text {
+  font-family: "Roboto-Bold";
+  margin: 20px 0;
+  color: #303030;
+  font-size: 18px;
+}
+
+.author-name {
+  font-family: "Roboto-Light";
+  color: #878787;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.time-remaining {
+  font-family: "Roboto-Light";
+  color: #303030;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.action-button {
+  padding: 15px;
+  font-family: "Roboto-Light";
+  color: #303030;
+  text-align: center;
+  border: 1px solid #e3e3e3;
+  font-size: 16px;
+  width: 205px;
+  border-radius: 5px;
+}
+
+.action-button:hover {
+  border: 1px solid #303030;
+  transition: 0.2s border;
+  cursor: pointer;
+}
+
+.books-slider {
+  width: 808px;
+}
+
+.no-items {
+  padding-top: 20px;
+  font-family: "Roboto-Light";
+  color: #b9b9b9;
+  font-size: 30px;
+  height: 450px;
+  padding-left: 30px;
+  box-sizing: border-box;
+}

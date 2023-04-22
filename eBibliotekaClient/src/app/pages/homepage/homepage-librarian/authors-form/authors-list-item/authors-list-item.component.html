@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div class="author-item" *ngIf="!enableUpdate">{{author.name}}</div>
+    <input type="text"
+     class="author-item-edit" 
+    *ngIf="enableUpdate" 
+    [(ngModel)]="updateText"
+    
+    value="{{author.name}}"
+    >
+    <div class="btn-wrapper">
+
+        <button class="btn button-ghost-dark" *ngIf="!enableUpdate" (click)="enableUpdate=!enableUpdate">PROMJENI</button>
+        <button class="btn button-ghost-dark btn-save" *ngIf="enableUpdate" (click)="updateAuthor()">SPREMI</button>
+        <button class="btn button-ghost-dark btn-remove" *ngIf="!enableUpdate" (click)="deleteAuthor()">UKLONI</button>
+        <button class="btn button-ghost-dark" *ngIf="enableUpdate" (click)="enableUpdate=false; updateText=''">NATRAG</button>
+    </div>
+</div>

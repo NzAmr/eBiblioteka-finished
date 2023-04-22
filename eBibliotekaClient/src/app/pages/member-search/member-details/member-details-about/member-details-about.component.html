@@ -1,0 +1,35 @@
+<div class="about-grid">
+  <div class="membership-info">
+    <div class="section-title">O članu</div>
+
+    <div class="mem-info-item">
+      <div class="mem-info-title title-join">Učlanjeni</div>
+      {{ getFormattedDate(member.joinDate) }}
+    </div>
+
+    <div class="mem-info-item">
+      <div class="mem-info-title title-expiration">Članarina ističe</div>
+      {{ getFormattedDate(member.expirationDate) }}
+    </div>
+
+    <div class="mem-info-item">
+      <div class="mem-info-title title-debt">Dug</div>
+      Nema dugova
+    </div>
+
+    <div class="mem-info-item">
+      <div class="mem-info-title title-lent">Knjiga posuđeno</div>
+      {{ member.noOfLentBooks }}
+    </div>
+  </div>
+  <div class="offer-info">
+    <div class="section-title">O Paketu članstva</div>
+
+    <div class="offer-wrapper">
+      <app-membership-offer
+        [offer]="member.membershipOffer"
+        [hideAction]="true"
+      ></app-membership-offer>
+    </div>
+  </div>
+</div>

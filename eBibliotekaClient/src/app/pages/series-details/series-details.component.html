@@ -1,0 +1,24 @@
+<div class="library-search-main">
+    <div class="wrapper">
+      <div class="search-wrapper">
+        <button *ngIf="isAuth" class="search-button button-dark" (click)="setShowAdd(true)" >
+          DODAJ KNJIGU
+        </button>
+      </div>
+      <app-slider
+          class="offers-slider"
+          [noOfItems]="books.length"
+          [itemWidth]="295"
+          [gapWidth]="25"
+        >
+          <app-series-book-item *ngFor="let book of books" [book]="book" [seriesID]="SeriesId" (onDelete)="loadPage()"></app-series-book-item>
+        </app-slider>
+      
+    </div>
+  </div>
+  
+<!--<app-pagination
+        [data]="pagedList.navigation"
+        (onNavigate)="loadPage($event)"
+      ></app-pagination>-->
+      <app-add-book-to-series *ngIf="showAdd" [seriesID]="SeriesId" (onActionComplete)="setShowAdd(false); loadPage()"></app-add-book-to-series>

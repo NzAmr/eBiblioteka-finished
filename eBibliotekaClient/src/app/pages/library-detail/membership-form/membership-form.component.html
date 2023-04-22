@@ -1,0 +1,80 @@
+<div class="overlay-shadow" [ngStyle]="{ top: getScrollPos() + 'px' }">
+  <div class="overlay-item main-wrapper">
+    <div class="header">
+      <app-heading text="PREGLED ČLANARINE" size="m"></app-heading>
+      <div class="close-wrapper">
+        <img
+          src="assets/svg/close.svg"
+          alt="close-icon"
+          class="close-icon"
+          (click)="closeOverlay()"
+        />
+      </div>
+    </div>
+
+    <div class="main-grid">
+      <app-library-card [library]="library"></app-library-card>
+
+      <div class="membership-info">
+        <div class="form-control-small">
+          <label for="timeUntil">Važi do</label>
+          <input
+            type="text"
+            id="timeUntil"
+            name="timeUntil"
+            value="23-1-2023"
+            disabled
+          />
+        </div>
+
+        <div class="form-control-small">
+          <label for="timeUntil">Broj knjiga</label>
+          <input
+            type="text"
+            id="timeUntil"
+            name="timeUntil"
+            value="{{ offer.noOfBooks }}"
+            disabled
+          />
+        </div>
+        <div class="form-control-small">
+          <label for="timeUntil">Cijena</label>
+          <input
+            type="text"
+            id="timeUntil"
+            name="timeUntil"
+            value="{{ offer.price }} KM"
+            disabled
+          />
+        </div>
+
+        <button
+          class="button button-green submit-button"
+          (click)="submit()"
+          *ngIf="loading !== true"
+        >
+          UČLANI SE
+        </button>
+
+        <button
+          class="button button-green submit-loading"
+          *ngIf="loading === true"
+        >
+          <div class="lds-ring lds-ring-white loading-submit">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+    <div class="warning">
+      NAPOMENA : ukoliko produžite članarinu ponudom koja ima manji broj
+      dozvoljenih iznajmljivanja u isto vrijeme, onda se nadmeće aktuelnija
+      ponuda (ponuda sa kojom ste produžili članarinu).
+    </div>
+  </div>
+</div>

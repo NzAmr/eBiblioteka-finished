@@ -1,0 +1,149 @@
+.library-list-wrapper {
+  min-height: 400px;
+}
+
+.library-list-no-items {
+  font-size: 36px;
+  color: #303030;
+  margin-top: 60px;
+}
+.library-list-no-items > p {
+  font-size: 18px;
+  color: #303030;
+  font-family: "Roboto-Light";
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.library-list-item {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  height: 320px;
+}
+.library-list-item:hover {
+  cursor: pointer;
+}
+.banner {
+  border-radius: 7px 0 0 0;
+  background-color: #999999;
+  height: 120px;
+  flex-basis: fill;
+  background-size: cover;
+  background-position: center;
+}
+.map-side {
+  background-color: #c9c9c9;
+  border-radius: 0 7px 7px 0;
+  overflow: hidden;
+  position: relative;
+}
+.content {
+  height: 200px;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 15px;
+  background-color: #f9f9f9;
+  position: relative;
+  border-radius: 0 0 0 7px;
+}
+.heading {
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+}
+.profile-pic {
+  background-color: #f9f9f9;
+  position: absolute;
+  top: -85px;
+  left: 5px;
+  border: 1px solid #e3e3e3;
+  height: 110px;
+  width: 110px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+.name {
+  color: #303030;
+  font-size: 24px;
+  padding-left: 135px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 82% 18%;
+}
+.about-text {
+  font-family: "Roboto-Light";
+  color: #303030;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.library-list-stats {
+  border: 1px solid #e3e3e3;
+  height: 100px;
+  border-radius: 7px;
+  margin-bottom: auto;
+}
+
+.action {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 15px;
+}
+.action > img {
+  height: 12px;
+  padding: 0 5px 0 0;
+  transition: padding 0.1s;
+}
+
+.library-list-item:hover .action > img {
+  padding: 0 0 0 5px;
+  background-color: #f9f9f9;
+}
+.library-list-loading-wrapper {
+  padding-top: 150px;
+  height: 250px;
+  align-items: center;
+  text-align: center;
+}
+
+.membership-wrapper {
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  right: 20px;
+  background-color: #00d8b1;
+  padding: 12px 22px;
+  color: white;
+  font-family: "Roboto-Bold";
+  letter-spacing: 1px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.checkmark-icon {
+  width: 18px;
+}
+
+.map {
+  height: 320px;
+}
+
+.map-location-name {
+  font-size: 16px;
+}
+
+.map-location-desc {
+  font-family: "Roboto-Light";
+  font-size: 14px;
+}
+
+.map-missing {
+  font-family: "Roboto-Light";
+  font-size: 22px;
+  text-align: center;
+  margin-top: 140px;
+}

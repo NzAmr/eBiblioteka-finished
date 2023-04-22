@@ -1,0 +1,34 @@
+<div class="grid-wrapper">
+  <div class="month-wrapper">
+    <div class="month-prev" (click)="prevMonth()">
+      <img src="assets/svg/back-arrow-dark.svg" alt="" />
+    </div>
+    <div class="month">{{ monthPicker.name }}</div>
+    <div class="month-next" (click)="nextMonth()">
+      <img src="assets/svg/back-arrow-dark.svg" alt="" />
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="day" *ngFor="let day of days">{{ day }}</div>
+    <div class="grid-item" *ngFor="let item of dates">
+      <div
+        class="content"
+        [ngStyle]="{
+          color: '#' + item.color,
+          'background-color': '#' + item.dotColor
+        }"
+      >
+        <div class="content-dot" (click)="selectDate(item.date)"></div>
+        {{ item.date.getDate() }}
+      </div>
+      <div
+        [ngStyle]="{ 'background-color': '#' + item.pipeColor }"
+        [ngClass]="{
+          pipe: !item.startOfWeek,
+          'pipe-extended': item.startOfWeek
+        }"
+      ></div>
+    </div>
+  </div>
+</div>
